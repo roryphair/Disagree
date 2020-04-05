@@ -1,0 +1,14 @@
+<% if logged_in? %>
+  <script type="text/javascript">
+    // window.currentUser2 =  { 
+    //   id: <%= current_user.id %>,
+    //   username: "<%= current_user.username %>"
+    // }
+    window.currentUser = <%= render(
+      "api/users/user.json.jbuilder",
+      user: current_user
+    ).html_safe %>
+  </script>
+<% end %>
+
+<div id='root'> YOU SHOULD NEVER SEE THIS WAAAH</div>
