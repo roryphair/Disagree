@@ -1,0 +1,43 @@
+.session-form{
+    background-color: rgb(54,57,63);
+    border: 1px solid;
+    display: flex;
+    position: absolute;;
+    right: 20%;
+    left: 20%;
+    top:20%;
+    flex-direction: column;
+    padding: 30px;
+    color: #8e9297;
+    width: 500px;
+}
+.session-form h2{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+}
+.session-form > form > *{
+    padding: 20px 0px;
+    margin: 20px 0px;
+}
+.session-form input {
+    width: 100%;
+    border: black 1px solid;
+    border-radius: 5%;
+    color: white;
+    background-color: #202122;
+    padding: 10px;
+}
+
+.session-form button{
+    display: inline-block;
+    width: 100%;
+    color: white;
+    background-color: #7289da;
+    text-align: center;
+    border: 1px black solid;
+    border-radius: 5%;
+    padding: 10px;
+}

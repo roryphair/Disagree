@@ -18,6 +18,7 @@ class LoginForm extends React.Component{
             username: "",
             password: ''
         });
+
     }
 
     update(type){
@@ -25,23 +26,25 @@ class LoginForm extends React.Component{
     }
 
     render(){
-        if(this.props.user) return <Redirect to='/'/>
-        
-        return ( <div className='login-form'>
-            <h2>Log In</h2>
+        return ( <div className='session-form'>
+            
             <ul>
                     {this.props.errors.length > 0 ? this.props.errors.map((error,idx) =>  <li key={idx}> {error}</li>) : null}
             </ul>
             <form action="" onSubmit={this.handleSubmit}>
-                <label htmlFor=""> Username:
-                    <input type="text" onChange={this.update('username')} value={this.state.username} />
-                </label>
-                <label htmlFor=""> Password
-                    <input type="password" onChange={this.update('password')} value={this.state.password} />
-                </label>
-                <button>Log in</button>
+                <h2>Welcome back!</h2>
+                <h3>We're so excited to see you again!</h3>
+                
+                <label htmlFor="" id='username'> USERNAME </label>
+                <input type="text" onChange={this.update('username')} value={this.state.username} id='username'/>
+                    
+                        
+                <label htmlFor="" id='password'> PASSWORD  </label>
+                <input type="password" onChange={this.update('password')} value={this.state.password} id='password'/>
+                <button>Login</button>
             </form>
-            <Link to='/signup'>Already have an account?</Link>
+            <h4>Need an account? <Link to='/signup'>Register</Link></h4>
+            
         </div>)
     }
 }

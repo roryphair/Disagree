@@ -1,0 +1,34 @@
+.servers-index{
+    display: flex;
+    background-color: rgb(32,34,37);
+    width: 200px;
+    height: 100%;
+    flex-direction: column;
+}
+.channels-index{
+    display: flex;
+    background-color: rgb(47,49,54);
+    width: 200px;
+    height: 100%;
+    flex-direction: column;
+}
+.channels-title{
+    height: 10%;
+}
+.channels-list{
+    height: 80%;
+}
+.channels-user{
+    display: flex;
+    position: relative;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+    height: 10%;
+    border: 3px solid red;
+    bottom: 0;
+}
+.messages-index{
+    display:flex;
+
+}

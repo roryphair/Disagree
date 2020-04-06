@@ -22,25 +22,26 @@ class SignupForm extends React.Component{
     }
 
     render(){
-        return ( <div className='signup-form'>
-            <h2>Sign up</h2>
+        return ( <div className='session-form'>
             <ul>
                 {this.props.errors.length > 0 ? this.props.errors.map((error,idx) =>  <li key={idx}> {error}</li>) : null}
             </ul>
             <form action="" onSubmit={this.handleSubmit}>
-                <label htmlFor=""> Username:
-                    <input type="text" onChange={this.update('username')} value={this.state.username} />
-                </label>
-                <label htmlFor=""> Email:
-                    <input type="text" onChange={this.update('email')} value={this.state.email} />
-                </label>
-                <label htmlFor=""> Password
-                    <input type="password" onChange={this.update('password')} value={this.state.password} />
-                </label>
-                <button>Create Account</button>
+                
+                <h2>Create an account</h2>
+                <label htmlFor="" id='username'> USERNAME </label>
+                <input type="text" onChange={this.update('username')} value={this.state.username} id='username'/>
+                
+                <label htmlFor="" id='email'>  EMAIL</label>
+                <input type="text" onChange={this.update('email')} value={this.state.email}  id='email'/>
+                    
+                <label htmlFor="" id='password'> PASSWORD  </label>
+                <input type="password" onChange={this.update('password')} value={this.state.password} id='password'/>
+                
+                <button>Continue</button>
             </form>
             
-            <Link to='/login'>Log in</Link>
+            <Link to='/login'>Already have an account?</Link>
         </div>)
     }
 }

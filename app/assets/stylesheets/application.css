@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+.app-main{
+    position: absolute;
+    display: flex;
+    width: 100%;
+    background-color: #25252b;
+    height: 100%;
+     top: 0; 
+     left: 0; 
+     height: 100%; 
+     width: 100%;
+}
+body{
+}
+h1{
+    color: white;
+}
+p{
+    color: grey;
+}
