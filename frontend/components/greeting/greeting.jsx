@@ -11,6 +11,7 @@ class Greeting extends React.Component{
         if(this.props.currentUser){
             return ( <div className='greeting'> 
                 <h2>Welcome {this.props.currentUser.username}</h2>
+                <button onClick={this.props.logout}>Logout</button>
             </div>)
         }else{
             return( <div className='greeting'>

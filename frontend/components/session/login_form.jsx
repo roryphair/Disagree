@@ -41,7 +41,7 @@ class LoginForm extends React.Component{
                 </label>
                 <button>Log in</button>
             </form>
-            <Link to='/signup'>Sign Up</Link>
+            <Link to='/signup'>Already have an account?</Link>
         </div>)
     }
 }
