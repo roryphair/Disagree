@@ -5,9 +5,10 @@ class Home extends React.Component{
         super(props);
     }
     componentDidMount(){
-        
+
     }
     render(){
+        const name = this.props.currentUser ? this.props.currentUser.username : 'loading';
         return (
             <>
         <div className='servers-index'> 
@@ -22,7 +23,7 @@ class Home extends React.Component{
                 list of channels
             </div>
             <div className='channels-user'>
-                <h2> {this.props.currentUser.username}</h2>
+                <h2> {name}</h2>
                 <button onClick={this.props.logout}>Logout</button></div>
         </div>
         <div className='messages-index'></div>
