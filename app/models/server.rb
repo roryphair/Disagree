@@ -17,7 +17,7 @@ class Server < ApplicationRecord
 
     belongs_to :admin,
     foreign_key: admin_id,
-    class: :User
+    class_name: :User
 
 
 

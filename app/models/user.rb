@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
     has_many :owned_servers,
     foreign_key: :admin_id,
-    class: :Server
+    class_name: :Server
 
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
