@@ -1,0 +1,13 @@
+.splash-page{
+    display: flex;
+    justify-content: center;
+
+}
+.splash-body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.splash-body p{
+    text-align: center;
+}

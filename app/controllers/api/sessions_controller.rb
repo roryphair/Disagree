@@ -1,8 +1,8 @@
 class Api::SessionsController < ApplicationController
     def create
-        @user = User.find_by_credentials(params[:user][:username], params[:user][:password])
+        @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
         if @user.nil?
-            render json: [ 'Invalid username or password'], status: 422 
+            render json: [ 'Invalid email or password.'], status: 422 
         else
             login!(@user)
             render 'api/users/show'
@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
             logout!
             render json: {}
         else 
-            render json: ['You cannot log out if you are not logged in first'],  status: 404
+            render json: ['You need to be logged in to log out.'],  status: 404
         end
     end
 

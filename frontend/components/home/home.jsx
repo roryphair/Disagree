@@ -1,19 +1,19 @@
 import React from 'react';
+import ServersIndex from './servers/server_index_container';
 
 class Home extends React.Component{
     constructor(props){
         super(props);
     }
     componentDidMount(){
-
+        this.props.getUser(this.props.sessionId);
     }
     render(){
-        const name = this.props.currentUser ? this.props.currentUser.username : 'loading';
+        const name = this.props.user ? this.props.user.username : 'loading';
         return (
             <>
         <div className='servers-index'> 
-            <h1>servers go here</h1>
-            <h1>for fixing later</h1>
+            <ServersIndex />
         </div>
         <div className='channels-index'>
             <div className='channels-title' >

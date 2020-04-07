@@ -19,6 +19,12 @@ class Server < ApplicationRecord
     foreign_key: :admin_id,
     class_name: :User
 
+    has_many :server_users,
+    foreign_key: :server_id,
+    class_name: :ServerUser
 
+    has_many :users,
+    through: :server_users,
+    source: :users
 
 end
