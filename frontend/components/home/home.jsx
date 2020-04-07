@@ -5,10 +5,10 @@ class Home extends React.Component{
         super(props);
     }
     componentDidMount(){
-
+        this.props.getUser(this.props.sessionId);
     }
     render(){
-        const name = this.props.currentUser ? this.props.currentUser.username : 'loading';
+        const name = this.props.user ? this.props.user.username : 'loading';
         return (
             <>
         <div className='servers-index'> 

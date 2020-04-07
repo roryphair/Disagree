@@ -29,6 +29,13 @@ export const signup = (user) => dispatch => (
     )
 )
 
+export const getUser = (userid) => dispatch => (
+    api_util.requestUser(userid).then(
+        (new_user) => dispatch(receiveCurrentUser(new_user)),
+        (e) => dispatch(receiveErrors(e))
+    )
+)
+
 export const login = (user) => dispatch => (
     api_util.login(user).then(
         (new_user) => dispatch(receiveCurrentUser(new_user)),

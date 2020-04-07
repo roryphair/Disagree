@@ -23,6 +23,16 @@ class User < ApplicationRecord
     foreign_key: :admin_id,
     class_name: :Server
 
+    has_many :servers_users,
+    foreign_key: :user_id,
+    class_name: :ServerUser
+
+    has_many :servers,
+    through: :servers_users,
+    source: :servers
+
+
+
     def self.find_by_credentials(username, password)
         user = User.find_by(username: username)
         return user if user && user.is_password?(password)
