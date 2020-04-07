@@ -1,4 +1,5 @@
 import React from 'react';
+import ServersIndex from '../servers/server_index_container';
 
 class Home extends React.Component{
     constructor(props){
@@ -12,8 +13,7 @@ class Home extends React.Component{
         return (
             <>
         <div className='servers-index'> 
-            <h1>servers go here</h1>
-            <h1>for fixing later</h1>
+            <ServersIndex />
         </div>
         <div className='channels-index'>
             <div className='channels-title' >

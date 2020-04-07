@@ -22,7 +22,9 @@ class SignupForm extends React.Component{
     }
 
     render(){
-        return ( <div className='session-form'>
+        return ( 
+        <div className='session-background'>
+        <div className='session-form'>
             <ul>
                 {this.props.errors.length > 0 ? this.props.errors.map((error,idx) =>  <li key={idx}> {error}</li>) : null}
             </ul>
@@ -38,10 +40,11 @@ class SignupForm extends React.Component{
                 <label htmlFor="" id='password'> PASSWORD  </label>
                 <input type="password" onChange={this.update('password')} value={this.state.password} id='password'/>
                 
-                <button>Continue</button>
+                <button className='blue'>Continue</button>
             </form>
             
             <Link to='/login'>Already have an account?</Link>
+        </div>
         </div>)
     }
 }

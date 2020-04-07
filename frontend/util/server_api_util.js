@@ -1,8 +1,13 @@
-export const getServers = (userId) => (
+export const getServer = (serverId) => (
     $.ajax({
         method: 'GET',
-        url: '/api/servers',
-        data: {userId}
+        url: `/api/servers/${serverId}`,
+    })
+)
+export const getServers = () => (
+    $.ajax({
+        method: 'GET',
+        url: '/api/servers'
     })
 )
 
@@ -17,7 +22,6 @@ export const createServer = (server) => (
 export const removeServer = (serverId) => (
     $.ajax({
         method: 'DELETE',
-        url: '/api/servers',
-        data: {serverId}
+        url: `/api/servers/${serverId}`,
     })
 )

@@ -6,7 +6,7 @@ const msp = (state) =>({
     errors: Object.values(state.errors)
 })
 const mdp = (dispatch) => ({
-    login: () => dispatch(login({username: 'demo-williams', password: '123456'}))
+    login: () => dispatch(login({email: 'demo@demo.com', password: '123456'}))
 })
 
 export default connect(msp, mdp)(Welcome);

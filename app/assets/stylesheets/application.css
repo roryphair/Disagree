@@ -24,7 +24,22 @@
      height: 100%; 
      width: 100%;
 }
-body{
+a{
+    color:rgb(114,137,218);
+}
+button {
+    cursor: pointer;
+    text-align: center;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 0px 10px;
+}
+
+button.blue{
+    width: 100%;
+    color: white;
+    background-color: #7289da;
 }
 h1{
     color: white;

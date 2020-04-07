@@ -1,7 +1,7 @@
 class Api::ServersController < ApplicationController
-
-    def index 
-        @servers = Server.find()
+    def index
+        @servers = Server.all
+        render :index
     end
 
     def create
@@ -15,6 +15,11 @@ class Api::ServersController < ApplicationController
 
     def destroy
 
+    end
+
+    def show 
+        @server = Server.find(params[:id])
+        render :show
     end
 
     private
