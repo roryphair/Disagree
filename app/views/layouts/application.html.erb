@@ -7,9 +7,16 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <script type='text/javascript'>
+     window.logo = "<%= image_url('logo.png') %>";
+     window.icon = "<%= image_url('icon.png') %>";
+     window.user_icon = "<%= image_url('user_icon.png') %>";
+    </script>
+    
   </head>
 
   <body>
+
     <%= yield %>
   </body>
 </html>

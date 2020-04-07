@@ -14,11 +14,13 @@ class ServerIndex extends React.Component{
         return (<div className='server-list'>
             <ul>
                 {this.props.servers.map( server => (
-                    <li key={server.name}>
-                        {server.name}
+                    <li className='server-list-item' key={server.name}>
+                        <img className='icon server-icon' src={window.user_icon} alt={server.name}/>
+                        <h2 className='server-title'>{server.name}</h2>
                     </li>
                 ))}
-                <li>create server</li>
+                <li className='server-list-item'> <button className='icon server-icon' onClick={this.props.openModal}>+</button> 
+                <h2 className='server-title'>Add Server</h2></li>
             </ul>
         </div>)
     }

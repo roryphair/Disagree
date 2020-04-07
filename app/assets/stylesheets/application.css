@@ -36,10 +36,50 @@ button {
     margin: 0px 10px;
 }
 
+.blue{
+    color: #7289da;
+}
+
 button.blue{
     width: 100%;
     color: white;
     background-color: #7289da;
+}
+.icon {
+    position: relative;
+    background-color: teal;
+    border-radius: 40%;
+    height: 50px;
+    width: 50px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px
+}
+.icon:hover{
+    border-radius: 20%;
+    border: 1px solid black;
+}
+.server-list-item{
+    position: relative;
+}
+.server-list-item:hover .server-title{
+    display: inline-block;
+    height: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.server-title{
+    position: absolute;
+    left: 50px;
+    top: -10px;
+    display: none;
+    color: white;
+    background-color: black;
+}
+
+li{
+    list-style: none;
 }
 h1{
     color: white;

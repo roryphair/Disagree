@@ -1,6 +1,6 @@
 import React from 'react';
 import ServersIndex from './servers/server_index_container';
-
+import Modal from './modal/modal';
 class Home extends React.Component{
     constructor(props){
         super(props);
@@ -12,6 +12,7 @@ class Home extends React.Component{
         const name = this.props.user ? this.props.user.username : 'loading';
         return (
             <>
+        <Modal />
         <div className='servers-index'> 
             <ServersIndex />
         </div>
