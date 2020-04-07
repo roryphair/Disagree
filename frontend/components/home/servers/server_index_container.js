@@ -1,6 +1,6 @@
 import ServerIndex from './server_index';
 import {connect} from 'react-redux';
-import {createServer, fetchServers} from '../../actions/server_actions';
+import {createServer, fetchServers} from '../../../actions/server_actions';
 
 const msp = (state) =>({
     servers: Object.values(state.entities.servers)

@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 
 class ServerIndex extends React.Component{
     constructor(props){
@@ -19,7 +18,7 @@ class ServerIndex extends React.Component{
                         {server.name}
                     </li>
                 ))}
-                <li><Link to=''>create server</Link></li>
+                <li>create server</li>
             </ul>
         </div>)
     }

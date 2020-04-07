@@ -1,5 +1,5 @@
 import React from 'react';
-import ServersIndex from '../servers/server_index_container';
+import ServersIndex from './servers/server_index_container';
 
 class Home extends React.Component{
     constructor(props){
