@@ -1,11 +1,18 @@
 .splash-page{
     display: flex;
+    width: 100%;
     justify-content: center;
 }
 .splash-body{
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+.splash-page p {
+    width: 60%;
+    color: hsla(0,0%,100%,.6);
+    font-weight: 400;
+    font-size: 20px;
 }
 .splash-body p{
     text-align: center;
@@ -19,7 +26,6 @@ img.logo-img{
     justify-content: center;
 }
 .logo{
-
     align-items: center;
     display: flex;
     float: left;
@@ -30,4 +36,140 @@ img.logo-img{
 .right-side{
     display: flex;
     float:right;
+}
+img.splash-img{
+    position: absolute;
+    left: 50%;
+}
+img.grey{
+    opacity: .3;
+}
+
+img.bomb{
+    margin-left: -481px;
+    bottom: 335px;
+}
+img.cd{
+    margin-left: 423px;
+    bottom: 10px;
+}
+img.circlefill-1{
+    margin-left: -359px;
+    bottom: 300px;
+}
+img.circlefill-2{
+    margin-left: -319px;
+    bottom: 600px;
+}
+img.circlefill-3{
+    margin-left: 181px;
+    bottom: 500px;
+}
+img.circlefill-4{
+    margin-left: 531px;
+    bottom: 600px;
+}
+img.circlefill-5{
+    margin-left: 621px;
+    bottom: 140px;
+}
+img.circleopen-1{
+    margin-left: -359px;
+    bottom: 530px;
+}
+img.circleopen-2{
+    margin-left: 576px;
+    bottom: 280px;
+}
+img.circleopen-3{
+    margin-left: -199px;
+    bottom: 88px;
+}
+img.coin-1{
+    margin-left: -428px;
+    bottom: 300px;
+}
+img.coin-2{
+    margin-left: 80px;
+    bottom: 530px;
+}
+img.coinblock{
+    margin-left: -239px;
+    bottom: 462px;
+}
+img.controller{
+    margin-left: -255px;
+    bottom: 10px;
+    z-index: 2;
+}
+img.disk{
+    margin-left: 250px;
+    bottom: 392px;
+}
+img.headphone{
+    margin-left: 270px;
+    bottom: 142px;
+    z-index: 3;    
+    transform: scale(.75);
+}
+img.iphone{
+    margin-left: -401.5px;
+    bottom: 10px;
+    z-index: 2;
+}
+img.laptop{
+    margin-left: -4px;
+    bottom: 10px;
+    z-index: 2;
+}
+img.monitor{
+    margin-left: -289.5px;
+    bottom: 10px;
+    z-index: 1;
+}
+img.potion{
+    margin-left: -609px;
+    bottom: 10px;
+    z-index: 1;
+}
+img.smartphone{
+    margin-left: -548px;
+    bottom: 10px;
+    z-index: 3;
+}
+img.square-1{
+    margin-left: 17px;
+    bottom: 92px;
+}
+img.square-2{
+    margin-left: -159px;
+    bottom: 300px;
+}
+img.square-3{
+    margin-left: 331px;
+    bottom: 600px;
+}
+img.triangle-1{
+    margin-left: -579px;
+    bottom: 300px;
+}
+img.triangle-2{
+    margin-left: 31px;
+    bottom: 550px;
+}
+img.triangle-3{
+    margin-left: -289px;
+    bottom: 448px;
+}
+img.x-1{
+    margin-left: 101px;
+    bottom: 440px;
+}
+img.x-2{
+    margin-left: 541px;
+    bottom: 220px;
+}
+img.x-3{
+    margin-left: -579px;
+    bottom: 510px;
 }
