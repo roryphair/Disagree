@@ -9,6 +9,7 @@ class CreateServer extends React.Component{
     handleSubmit(e){
         e.preventDefault();
         this.props.createServer(this.state);
+        this.props.closeModal();
     }
     update(type){
         return (e) => (this.setState({[type]: e.currentTarget.value}))

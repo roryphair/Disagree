@@ -7,6 +7,7 @@ class Api::ServersController < ApplicationController
     def create
         @server = Server.new(server_params);
         if @server.save
+            ServerUser.create!(user_id: @server.admin_id, server_id: @server.id, role: 'admin')
             render :show
         else
             render json: @user.errors.full_messages, status: 404

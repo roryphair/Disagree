@@ -32,6 +32,7 @@ img.logo-img{
 }
 .splash-header{
     width: 100%;
+    height: 100px;
 }
 .right-side{
     display: flex;
@@ -45,17 +46,32 @@ img.grey{
     opacity: .3;
 }
 
+.floating {  
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    transition: all .5s ease;
+}
+
+@keyframes floating {
+    from { transform: translate(0,  0px); }
+    65%  { transform: translate(0, 15px); }
+    to   { transform: translate(0, -0px); }    
+}
 img.bomb{
     margin-left: -481px;
     bottom: 335px;
+    animation-delay: .4s;
 }
 img.cd{
     margin-left: 423px;
     bottom: 10px;
 }
 img.circlefill-1{
-    margin-left: -359px;
-    bottom: 300px;
+    margin-left: -599px;
+    bottom: 200px;
 }
 img.circlefill-2{
     margin-left: -319px;
@@ -88,6 +104,7 @@ img.circleopen-3{
 img.coin-1{
     margin-left: -428px;
     bottom: 300px;
+    
 }
 img.coin-2{
     margin-left: 80px;
@@ -142,8 +159,8 @@ img.square-1{
     bottom: 92px;
 }
 img.square-2{
-    margin-left: -159px;
-    bottom: 300px;
+    margin-left: 431px;
+    bottom: 400px;
 }
 img.square-3{
     margin-left: 331px;

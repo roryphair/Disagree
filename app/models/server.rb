@@ -21,7 +21,8 @@ class Server < ApplicationRecord
 
     has_many :server_users,
     foreign_key: :server_id,
-    class_name: :ServerUser
+    class_name: :ServerUser,
+    dependent: :destroy
 
     has_many :users,
     through: :server_users,

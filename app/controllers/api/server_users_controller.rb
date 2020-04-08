@@ -1,11 +1,11 @@
-class Api::ServerUsers < ApplicationController
+class Api::ServerUsersController < ApplicationController
 
     def index
 
     end
 
     def create
-
+        
     end
 
     def destroy

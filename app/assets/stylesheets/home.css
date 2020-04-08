@@ -1,34 +1,75 @@
+
+.icon {
+    position: relative;
+    background-color: teal;
+    border-radius: 75%;
+    height: 48px;
+    width: 48px;
+    padding: 0px;
+    margin: 0px;
+    border: 0px
+}
+.icon:hover{
+    border-radius: 40%;
+    border: 1px solid black;
+}
 .servers-index{
     display: flex;
     background-color: rgb(32,34,37);
-    width: 200px;
+    width: 89px;
     height: 100%;
     flex-direction: column;
 }
 .channels-index{
     display: flex;
     background-color: rgb(47,49,54);
-    width: 200px;
+    width: 280px;
     height: 100%;
     flex-direction: column;
-}
-.channels-title{
-    height: 10%;
-}
-.channels-list{
-    height: 80%;
-}
-.channels-user{
-    display: flex;
-    position: relative;
-    align-items: flex-end;
-    justify-content: center;
-    width: 100%;
-    height: 10%;
-    border: 3px solid red;
-    bottom: 0;
+    justify-content: flex-start;
+    align-items: stretch;
 }
 .messages-index{
     display:flex;
-
+    background-color:#36393f;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
 }
+.channels-title{
+    height: 48px;
+    border-bottom: 1px solid black;
+}
+.channels-list{
+    display: flex;
+    height: 100%;
+    
+}
+.channels-user{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 52px;
+    bottom: 0;
+    background-color: rgb(41,43,47);
+}
+
+.messages-header{
+    border-bottom: 1px solid black;
+    height: 48px;
+}
+
+.messages-body{
+    display: flex;
+    height: 100%;
+}
+.messages-bottom{
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: -8px;
+    height: 68px;
+}
+

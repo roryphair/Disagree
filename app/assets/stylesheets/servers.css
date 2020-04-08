@@ -1,0 +1,43 @@
+.server-list-item{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+.server-list ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.server-list-item:hover .server-title{
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.server-title{
+    height: 60%;
+    position: absolute;
+    left: 60px;
+    top: -12px;
+    display: none;
+    color: white;
+    background-color: black;
+    padding: 6px 10px 0px 10px;
+    font-size: 20px;
+}
+.server-icon{
+    font-size: 40px;
+}
+.server-seperator{
+    display: flex;
+    position: relative;
+    height: 2px;
+    width: 32px;
+    background-color: #36393f;
+    margin: 3px 0px;
+}
