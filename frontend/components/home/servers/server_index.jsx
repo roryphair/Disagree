@@ -7,7 +7,7 @@ class ServerIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.fetchServers();
+        this.props.getServers();
     }
 
     render(){
@@ -25,7 +25,9 @@ class ServerIndex extends React.Component{
                         </div>
                 {this.props.servers.map( server => (
                     <li className='server-list-item' key={server.name}>
-                        <img className='icon server-icon' src={window.user_icon} alt={server.name}/>
+                        <Link to={`/channels/${server.id}`}>
+                            <img className='icon server-icon' src={window.user_icon} alt={server.name}/>
+                        </Link>
                         <h2 className='server-title'>{server.name}</h2>
                     </li>
                 ))}

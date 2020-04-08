@@ -1,5 +1,6 @@
 
 .icon {
+    box-sizing: border-box;
     position: relative;
     background-color: teal;
     border-radius: 75%;
@@ -39,8 +40,11 @@
     align-items: stretch;
 }
 .channels-title{
-    height: 48px;
+    display: flex;
+    box-sizing: content-box;
+    height: 52px;
     border-bottom: 1px solid black;
+    overflow: hidden;
 }
 .channels-list{
     display: flex;
@@ -57,9 +61,30 @@
     background-color: rgb(41,43,47);
 }
 
+.chat-users{
+    display: flex;
+    flex:right;
+    height: 100%;
+    width: 232px;
+    background-color: #8e9297;
+}
+
 .messages-header{
+    box-sizing: content-box;
     border-bottom: 1px solid black;
     height: 48px;
+    overflow: hidden;
+}
+.messages-main{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.messages-middle{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 100%;
 }
 
 .messages-body{
@@ -67,9 +92,8 @@
     height: 100%;
 }
 .messages-bottom{
-    padding-left: 16px;
-    padding-right: 16px;
-    margin-top: -8px;
+    background-color: blueviolet;
+    display: flex;
     height: 68px;
 }
 

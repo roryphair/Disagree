@@ -45,13 +45,16 @@ button.blue{
     color: white;
     background-color: #7289da;
 }
-
+body{
+    overflow: hidden;
+}
 
 li{
     list-style: none;
 }
 h1{
     color: white;
+    margin:0px;
 }
 p{
     color: grey;

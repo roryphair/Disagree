@@ -19,13 +19,13 @@ export const receiveServers = (servers) =>({
     servers
 });
 
-export const fetchServer = (serverId) => dispatch => (
+export const getServer = (serverId) => dispatch => (
     api_util.getServer(serverId).then( 
         (server) => dispatch(receiveServer(server)), 
         (error) => dispatch(receiveErrors(error))
     )
 );
-export const fetchServers = () => dispatch =>(
+export const getServers = () => dispatch =>(
     api_util.getServers().then( 
         (servers) => dispatch(receiveServers(servers)), 
         (error) => dispatch(receiveErrors(error))

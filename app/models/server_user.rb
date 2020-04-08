@@ -11,6 +11,9 @@
 #
 class ServerUser < ApplicationRecord
 
+    validates :user_id, :server_id, :role, presence: true
+    validates :user_id, uniqueness: {scope: :server_id, message: 'This user is already on this server'}
+
     belongs_to :users,
     foreign_key: :user_id,
     class_name: :User

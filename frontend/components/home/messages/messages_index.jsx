@@ -5,9 +5,9 @@ class MessagesIndex extends React.Component{
         super(props);
     }
     render(){
-        return (<div>
-            all the dms
-        </div> )
+        return (
+             <div> what up daniel</div>
+        )
     }
 }
 export default MessagesIndex;

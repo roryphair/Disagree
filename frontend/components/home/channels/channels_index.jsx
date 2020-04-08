@@ -5,7 +5,9 @@ class ChannelsIndex extends React.Component{
         super(props)
     }
     render(){
-        return(<div>CHANNELS PAGE</div>)
+        return(
+            <div>nice channels wowo</div>
+       )
     }
 }
 export default ChannelsIndex;
