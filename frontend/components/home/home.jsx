@@ -53,8 +53,6 @@ class Home extends React.Component{
                 {chatUsers}
             </div>
           
-            
-             
         </div>
             
         </>

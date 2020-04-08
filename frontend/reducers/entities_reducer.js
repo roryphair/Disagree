@@ -10,5 +10,5 @@ export default combineReducers(
         servers: serversReducer, 
         channels: channelsReducer,
         direct_messages: directMessagesReducer,
-        channel_chats: channelChatsReducer,
+        channel_messages: channelChatsReducer,
     });

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_174303) do
+ActiveRecord::Schema.define(version: 2020_04_08_210333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "channel_messages", force: :cascade do |t|
+    t.integer "channel_id", null: false
+    t.integer "user_id", null: false
+    t.string "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_channel_messages_on_channel_id"
+    t.index ["user_id"], name: "index_channel_messages_on_user_id"
+  end
 
   create_table "channels", force: :cascade do |t|
     t.integer "server_id", null: false
@@ -21,6 +31,16 @@ ActiveRecord::Schema.define(version: 2020_04_08_174303) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name", "server_id"], name: "index_channels_on_name_and_server_id", unique: true
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.string "body", null: false
+    t.integer "author_id", null: false
+    t.integer "receiver_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_direct_messages_on_author_id"
+    t.index ["receiver_id"], name: "index_direct_messages_on_receiver_id"
   end
 
   create_table "server_users", force: :cascade do |t|

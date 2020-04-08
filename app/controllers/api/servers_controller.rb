@@ -6,8 +6,10 @@ class Api::ServersController < ApplicationController
 
     def create
         @server = Server.new(server_params);
+        @server.admin_id = current_user.id
         if @server.save
             ServerUser.create!(user_id: @server.admin_id, server_id: @server.id, role: 'admin')
+            Channel.create!(server_id: @server.id, name: 'general')
             render :show
         else
             render json: @user.errors.full_messages, status: 404
@@ -26,6 +28,6 @@ class Api::ServersController < ApplicationController
     private
 
     def server_params
-        params.require(:server).permit(:name, :admin_id, :image_url, :public)
+        params.require(:server).permit(:name, :image_url, :public)
     end
 end
