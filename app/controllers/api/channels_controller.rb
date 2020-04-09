@@ -14,13 +14,13 @@ class Api::ChannelsController < ApplicationController
         if @channel.destroy
             render :show
         else
-            render json: @user.errors.full_messages, status: 404
+            render json: @channel.errors.full_messages, status: 404
         end
 
     end
 
     def index
-        @channels = Channel.where(admin_id: params[:server_id])
+        @channels = Channel.where(server_id: params[:server_id])
         render :index;
     end
 

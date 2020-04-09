@@ -39,12 +39,12 @@ class User < ApplicationRecord
 
     has_many :dms_authored,
     foreign_key: :author_id,
-    class_name: :User,
+    class_name: :DirectMessage,
     dependent: :destroy
 
     has_many :dms_received,
-    foreign_key: :areceiver_id,
-    class_name: :User,
+    foreign_key: :receiver_id,
+    class_name: :DirectMessage,
     dependent: :destroy
 
     def self.find_by_credentials(email, password)

@@ -11,7 +11,6 @@ class Api::UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @servers = @user.servers
         render :show
     end
 

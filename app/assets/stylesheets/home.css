@@ -45,11 +45,12 @@
     height: 52px;
     border-bottom: 1px solid black;
     overflow: hidden;
+    align-items: center;
 }
 .channels-list{
     display: flex;
     height: 100%;
-    
+    flex-direction: column;
 }
 .channels-user{
     display: flex;

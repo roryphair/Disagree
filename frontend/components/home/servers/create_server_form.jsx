@@ -8,9 +8,12 @@ class CreateServer extends React.Component{
     }
     handleSubmit(e){
         e.preventDefault();
-        this.props.createServer(this.state);
+        const history = this.props.history;
+        this.props.createServer(this.state)
+        .then((e)=> history.push(`/channels/${e.server.id}`));
         this.props.closeModal();
     }
+
     update(type){
         return (e) => (this.setState({[type]: e.currentTarget.value}))
     }

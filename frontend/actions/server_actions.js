@@ -9,9 +9,10 @@ export const receiveErrors = (errors) => ({
     errors
 });
 
-export const receiveServer = (server) => ({
+export const receiveServer = ({server, channels}) => ({
     type: RECEIVE_SERVER,
-    server
+    server,
+    channels
 });
 
 export const receiveServers = (servers) =>({

@@ -9,15 +9,20 @@ class Api::ServersController < ApplicationController
         @server.admin_id = current_user.id
         if @server.save
             ServerUser.create!(user_id: @server.admin_id, server_id: @server.id, role: 'admin')
-            Channel.create!(server_id: @server.id, name: 'general')
+            Channel.create!(server_id: @server.id, name: 'General')
             render :show
         else
-            render json: @user.errors.full_messages, status: 404
+            render json: @server.errors.full_messages, status: 404
         end
     end
 
     def destroy
-
+        @server = Server.find(params[:id]);
+        if @server.destroy
+            render :index
+        else
+            render json: @server.errors.full_messages, status: 404
+        end
     end
 
     def show 

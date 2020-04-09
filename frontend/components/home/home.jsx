@@ -3,7 +3,7 @@ import ServersIndex from './servers/server_index_container';
 import Modal from './modal/modal';
 import {Route, Switch} from 'react-router-dom';
 import MessageIndex from './messages/messages_index';
-import ChannelsIndex from './channels/channels_index';
+import ChannelsIndex from './channels/channels_index_container';
 import ChatUsers from './chatbox/chat_users';
 
 class Home extends React.Component{
@@ -12,7 +12,7 @@ class Home extends React.Component{
     }
     componentDidMount(){
         this.props.getUser(this.props.sessionId);
-        this.props.getServers(this.props.sessionId);
+        // this.props.getServers(this.props.sessionId);
     }
     render(){
         const name = this.props.user ? this.props.user.username : 'loading';
