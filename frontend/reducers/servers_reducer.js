@@ -4,9 +4,9 @@ import {RECEIVE_CURRENT_USER} from '../actions/session_actions'
 const serversReducer = (state = {}, action) =>{
     Object.freeze(state);
     switch(action.type){
-        case RECEIVE_CURRENT_USER:
-            return action.servers;
         case RECEIVE_SERVERS:
+        case RECEIVE_CURRENT_USER:
+            if (!action.servers) return []
             return action.servers;
         case RECEIVE_SERVER:
             return Object.assign({}, state, {[action.server.id]: action.server});

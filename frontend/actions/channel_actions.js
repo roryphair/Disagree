@@ -9,9 +9,10 @@ export const receiveErrors = (errors) => ({
     errors
 });
 
-export const receiveChannel = (channel) => ({
+export const receiveChannel = ({channel ,messages  }) => ({
     type: RECEIVE_CHANNEL,
-    channel
+    channel,
+    messages
 });
 
 export const receiveChannels = (channels) =>({
@@ -32,9 +33,9 @@ export const getChannels = (serverId) => dispatch =>(
         )
 );
 
-export const createChannel = (channel) => dispatch =>(
-    api_util.createChannel(channel).then( 
-        (channel) => dispatch(receivechannel(channel)), 
+export const createChannel = (channel, serverId) => dispatch =>(
+    api_util.createChannel(channel, serverId).then( 
+        (channel) => dispatch(receiveChannel(channel)), 
         (error) => dispatch(receiveErrors(error))
         )
 );

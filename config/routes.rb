@@ -8,10 +8,10 @@ Rails.application.routes.draw do
       resources :channels, only: [:create, :index]
     end
     resources :channels, only: [:destroy, :show] do 
-      resources :channel_messages, only: [:create]
+      resources :channel_messages, only: [:create, :index]
     end
     
-    resources :direct_messages, only: [:create, :destroy]
+    resources :direct_messages, only: [:create, :destroy, :show]
     resources :channel_messages, only: [:destroy]
   end
 end

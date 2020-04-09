@@ -2,9 +2,11 @@ import React from 'react';
 import ServersIndex from './servers/server_index_container';
 import Modal from './modal/modal';
 import {Route, Switch} from 'react-router-dom';
-import MessageIndex from './messages/messages_index';
+import MessageIndex from './messages/messages_write';
 import ChannelsIndex from './channels/channels_index_container';
 import ChatUsers from './chatbox/chat_users';
+import MessagesBody from './messages/messages_body_container';
+import MessagesWrite from './messages/messages_write';
 
 class Home extends React.Component{
     constructor(props){
@@ -47,8 +49,8 @@ class Home extends React.Component{
             <div className='messages-header'>HEADER WOAH</div>
             <div className='messages-main'>  
                 <div className='messages-middle'>
-                    <div className='messages-bottom'> CHAT STUFf</div> 
-                    <div className='messages-body'>nice messages</div>
+                    <div className='messages-bottom'>  <MessagesWrite /> </div> 
+                    <div className='messages-body'>  <MessagesBody /></div>
                 </div>
                 {chatUsers}
             </div>

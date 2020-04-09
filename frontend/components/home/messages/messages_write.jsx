@@ -1,6 +1,6 @@
 import React from 'react'
 
-class MessagesIndex extends React.Component{
+class MessagesWrite extends React.Component{
     constructor(props){
         super(props);
     }
@@ -10,4 +10,4 @@ class MessagesIndex extends React.Component{
         )
     }
 }
-export default MessagesIndex;
+export default MessagesWrite;

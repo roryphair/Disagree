@@ -5,7 +5,7 @@ class Api::ChannelsController < ApplicationController
         if @channel.save
             render :show
         else
-            render json: @user.errors.full_messages, status: 404
+            render json: @channel.errors.full_messages, status: 404
         end
     end
 
@@ -16,7 +16,11 @@ class Api::ChannelsController < ApplicationController
         else
             render json: @channel.errors.full_messages, status: 404
         end
+    end
 
+    def show
+        @channel = Channel.find(params[:id]);
+        render :show
     end
 
     def index

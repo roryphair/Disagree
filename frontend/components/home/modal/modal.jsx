@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal, openModal } from '../../../actions/modal_actions';
 import { connect } from 'react-redux';
 import CreateServerContainer from '../servers/create_server_form_container';
+import CreateChannelContainer from '../channels/create_channel_container';
 import ChooseServer from '../servers/choose_server';;
 import JoinServer from '../servers/server_join_form';
 
@@ -22,9 +23,12 @@ class Modal extends React.Component{
             case 'serverCreateForm':
                 displayComp = <CreateServerContainer />;
                 break;
+            case 'channelCreateForm':
+                displayComp = <CreateChannelContainer />;
+                break;
             case 'serverJoinForm':
                 displayComp = <JoinServer />
-                    break
+                break
             default:
                 return null;
         }

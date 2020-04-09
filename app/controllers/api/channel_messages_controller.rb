@@ -10,6 +10,11 @@ class Api::ChannelMessagesController < ApplicationController
         end
     end
 
+    def index
+        @channel_messages = ChannelMessage.where(channel_id: :channel_id)
+        render :index
+    end
+
     def destroy
         @channel_message = ChannelMessage.find(params[:id]);
         if @channel_message.destroy

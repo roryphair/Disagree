@@ -4,12 +4,15 @@
     text-align: center;
 }
 .channels-names-list{
-    margin: 10px;
+    margin: 0px 5px;
+    padding: 0px 5px;
 }
 
 .channels-names-list li {
     width: 100%;
-    background-color: blueviolet;
+    padding: 5px;
+    margin: 0px 5px 8px 5px;
+    font-size: 18px;
 }
 .text-channels{
     box-sizing: border-box;
@@ -32,4 +35,5 @@
     font-size: 24px;
     margin: 10px;
     text-align: center;
+    cursor: pointer;
 }
