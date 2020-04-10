@@ -16,22 +16,20 @@ class Home extends React.Component{
         this.props.getUser(this.props.sessionId);
     }
 
-    // componentDidUpdate(prevProps){
-    //     if(this.props.match.params.serverId === '@me'){
+    componentDidUpdate(prevProps){
+        if(this.props.match.params.serverId === '@me'){
 
-    //     }  
-    //     else{
-    //         if(prevProps.match.params.serverId !== this.props.match.params.channelId){
-    //             if(prevProps.match.params.serverId !== this.props.match.params.serverId){ 
-    //         this.props.getServer(this.props.match.params.serverId);
-    //     }
-    //         }
-    //         if(prevProps.match.params.channelId !== this.props.match.params.channelId){
-    //             const channelId = this.props.match.params.channelId
-    //             this.props.getChannelMessages(channelId);
-    //         }
-    //     }
-    // }
+        }  
+        else{
+            if(prevProps.match.params.serverId !== this.props.match.params.serverId){ 
+                this.props.getServer(this.props.match.params.serverId);
+            }
+            if(prevProps.match.params.channelId !== this.props.match.params.channelId){
+                const channelId = this.props.match.params.channelId
+                this.props.getChannelMessages(channelId);
+            }
+        }
+    }
 
     render(){
         const name = this.props.user ? this.props.user.username : 'loading';
@@ -39,7 +37,7 @@ class Home extends React.Component{
         let chatUsers = <div></div>
         if(this.props.match.params.serverId !== '@me'){
             serverTitle = this.props.server ? this.props.server.name : 'loading'
-            chatUsers = <ChatUsers />;
+            chatUsers = <ChatUsers users={Object.values(this.props.users)}/>;
         }
         return (
             <>
@@ -71,7 +69,6 @@ class Home extends React.Component{
                 </div>
                 {chatUsers}
             </div>
-          
         </div>
             
         </>

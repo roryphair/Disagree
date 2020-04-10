@@ -21,13 +21,18 @@ export const getChannelMessages = (channelId) => dispatch =>(
         )
 );
 
-export const createChannelMessage = (directMessage, serverId) => dispatch =>(
-    api_util.createChannelMessage(directMessage, serverId).then( 
+export const createChannelMessage = (directMessage) => dispatch =>(
+    api_util.createChannelMessage(directMessage).then( 
         (directMessage) => dispatch(receiveMessage(directMessage)), 
         (error) => dispatch(receiveErrors(error))
         )
 );
-
+export const createDirectMessage = (directMessage, serverId) => dispatch =>(
+    api_util.createDirectMessage(directMessage, serverId).then( 
+        (directMessage) => dispatch(receiveMessage(directMessage)), 
+        (error) => dispatch(receiveErrors(error))
+        )
+);
 export const getDirectMessages = (author_id, receiver_id) => dispatch =>(
     api_util.getDirectMessages(author_id, receiver_id).then( 
         (Messages) => dispatch(receiveMessages(Messages)), 
@@ -35,9 +40,9 @@ export const getDirectMessages = (author_id, receiver_id) => dispatch =>(
         )
 );
 
-export const createDirectMessage = (directMessage, serverId) => dispatch =>(
-    api_util.createDirectMessage(directMessage, serverId).then( 
-        (directMessage) => dispatch(receiveMessage(directMessage)), 
+export const removeDirectMessage = (channelId) => dispatch =>(
+    api_util.removeDirectMessage(channelId).then( 
+        (channel) => dispatch(receiveChannel(channel)), 
         (error) => dispatch(receiveErrors(error))
         )
 );

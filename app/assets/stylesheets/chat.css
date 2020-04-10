@@ -1,0 +1,16 @@
+.chat-box-input{
+    background-color: rgb(64,68,75);
+    width: 100%;
+    border-radius: 8px;
+    max-height: 144px;
+    margin: 0px 16px 16px 16px;
+}
+.chat-box-input input{
+    background-color: rgb(64,68,75);
+    width: 98%;
+    height: 100%;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    border-style: none;
+}
