@@ -24,7 +24,7 @@ button.grey{
     border-radius: 20px;
     line-height: 24px;
     margin-right: 18px;
-    background-color: rgb(0,0,0,0);
+    background-color: rgba(0,0,0,0);
 }
 .splash-page p {
     width: 60%;
