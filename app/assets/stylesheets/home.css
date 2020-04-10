@@ -63,14 +63,36 @@
     background-color: rgb(41,43,47);
 }
 
+.user-icon{
+    height: 32px;
+    width: 32px;
+}
 .chat-users{
+    padding: 20px;
     display: flex;
     flex:right;
     height: 100%;
     width: 232px;
-    background-color: #8e9297;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgb(47,49,54);
+}
+.users-list-user{
+    display: flex;
+    align-items: center;
+    padding: 10px 10px;
 }
 
+.users-list-user > img {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.users-list {
+    margin: 0px;
+    padding: 0px;
+}
 .messages-header{
     box-sizing: content-box;
     border-bottom: 1px solid black;
@@ -94,7 +116,6 @@
     height: 100%;
 }
 .messages-bottom{
-    background-color: blueviolet;
     display: flex;
     height: 68px;
 }

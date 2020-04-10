@@ -13,7 +13,6 @@ export const getDirectMessages = (serverId) => (
     })
 )
 
-
 export const createChannelMessage = (message, channelId) => (
     $.ajax({
         method: 'POST',
@@ -22,10 +21,10 @@ export const createChannelMessage = (message, channelId) => (
     })
 )
 
-export const createDirectMessage = (message) => (
+export const createDirectMessage = (message, receiver_id) => (
     $.ajax({
         method: 'POST',
-        url: `/api/direct_messages`,
+        url: `/api/users/${receiver_id}/direct_messages`,
         data: {message}
     })
 )
@@ -35,5 +34,12 @@ export const removeChannelMessage = (messagesId) => (
     $.ajax({
         method: 'DELETE',
         url: `/api/channel_messages/${messagesId}`,
+    })
+)
+
+export const removeDirectMessage = (messagesId) => (
+    $.ajax({
+        method: 'DELETE',
+        url: `/api/direct_messages/${messagesId}`,
     })
 )
