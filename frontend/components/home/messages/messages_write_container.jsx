@@ -1,26 +1,33 @@
 import {connect} from 'react-redux';
-import MessagesBody from './messages_body';
+import MessagesWrite from './messages_write';
 import {withRouter} from 'react-router-dom';
-import {getChannelMessages} from '../../../actions/messages_actions'
+import {createChannelMessage, createDirectMessage} from '../../../actions/messages_actions'
 
 const msp = (state, ownProps) => {
-    const channelId = ownProps.match.params.channelId;
-    if(channelId){
+    if(ownProps.match.params.channelId === '@me'){
+        // return {
+        //     receiver: state.entities.channels[ownProps.match.params.channelId].username,
+        // };
+        return {}
+    } 
+    else {
+        return{
+            receiver: state.entities.channels[ownProps.match.params.channelId],
+                  }
+    }
+};
+
+const mdp = (dispatch,ownProps) => {
+    console.log(ownProps.match.params.channelId);
+    if(ownProps.match.params.channelId === '@me'){
         return {
-            users: state.entities.users,
-            servers: state.entities.servers,
-            messages: state.entities.messages[channelId]
+            createMessage: (channelId, receiverId) => dispatch(createDirectMessage(channelId, receiverId)),
         };
     } else {
-        return {
-            messages: null
+        return { 
+            createMessage: (channelId, receiverId) => dispatch(createChannelMessage(channelId, receiverId)),
         };
-    }
-}
-const mdp = (dispatch) => {
-    return {
-        getChannelMessages: (channelId) => dispatch(getChannelMessages(channelId)),
     }
 }
 
-export default withRouter(connect(msp,mdp)(MessagesBody));
+export default withRouter(connect(msp,mdp)(MessagesWrite));

@@ -21,10 +21,10 @@ export const createChannelMessage = (message, channelId) => (
     })
 )
 
-export const createDirectMessage = (message) => (
+export const createDirectMessage = (message, receiver_id) => (
     $.ajax({
         method: 'POST',
-        url: `/api/direct_messages`,
+        url: `/api/users/${receiver_id}/direct_messages`,
         data: {message}
     })
 )

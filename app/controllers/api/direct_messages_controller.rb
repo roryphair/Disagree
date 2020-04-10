@@ -2,6 +2,7 @@ class Api::DirectMessagesController < ApplicationController
     def create
         @direct_message = DirectMessage.new(direct__message_params);
         @direct_message.author_id = current_user.id
+        @direct_message.receiver_id = params[:user_id]
         if @direct_message.save
             render :show
         else
@@ -20,6 +21,6 @@ class Api::DirectMessagesController < ApplicationController
 
     private
     def direct_message_params
-        params.require(:direct_message).permit(:body, :receiver_id)
+        params.require(:message).permit(:body)
     end
 end
