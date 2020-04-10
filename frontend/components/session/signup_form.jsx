@@ -29,6 +29,13 @@ class SignupForm extends React.Component{
     render(){
         return ( 
         <div className='session-background'>
+            <div className='session-logo'>
+                <Link to='/'>
+                    <div className='logo'>
+                        <img src={window.icon} alt="icon"/>
+                        <img src={window.logo} className='logo-img' alt="logo"/>
+                    </div></Link>
+           </div>
         <div className='session-form'>
             <ul>
                 {this.props.errors.length > 0 ? this.props.errors.map((error,idx) =>  <li key={idx}> {error}</li>) : null}
@@ -47,8 +54,11 @@ class SignupForm extends React.Component{
                 
                 <button className='blue'>Continue</button>
             </form>
+            <div className='session-bottom'>
+                <Link to='/login'>Already have an account?</Link>  <h4 className={'blue pointer'} onClick={this.props.demoLogin}>Use the Demo Account</h4>  
+            </div>
             
-            <Link to='/login'>Already have an account?</Link>
+            
         </div>
         </div>)
     }

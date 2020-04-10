@@ -7,7 +7,8 @@ const msp = (state) =>({
 })
 const mdp = (dispatch) => ({
     signup: (user) => dispatch(signup(user)),   
-    resetErrors: () => dispatch(resetErrors())
+    resetErrors: () => dispatch(resetErrors()),
+    demoLogin: () => dispatch(login({email: 'demo@demo.com', password: '123456'}))
 })
 
 export default connect(msp, mdp)(SignupForm);

@@ -30,7 +30,7 @@
     margin: 20px 0px;
 }
 .session-form input {
-    width: 100%;
+    width: 96%;
     border: black 1px solid;
     border-radius: 5px;
     color: white;
@@ -38,3 +38,18 @@
     padding: 10px;
 }
 
+.session-bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.session-logo {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 10px
+}
+.session-logo img{
+    color: black;
+    filter: invert(100%);
+}

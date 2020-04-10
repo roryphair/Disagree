@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 class MessagesBody extends React.Component{
     constructor(props){
@@ -29,4 +29,5 @@ class MessagesBody extends React.Component{
         );
     }
 }
+
 export default MessagesBody;
