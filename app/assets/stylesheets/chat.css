@@ -6,7 +6,7 @@
     margin: 0px 16px 16px 16px;
 }
 .chat-box-input input{
-    background-color: rgb(64,68,75,0);
+    background-color: rgba(64,68,75,0);
     width: 95%;
     height: 100%;
     padding: 15px 20px;
