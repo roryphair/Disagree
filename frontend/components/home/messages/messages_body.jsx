@@ -11,6 +11,7 @@ class MessagesBody extends React.Component{
     }
 
     componentDidUpdate(prevProps){
+        console.log(this.props.messages);
         if(prevProps.match.params.channelId !== this.props.match.params.channelId){
             const channelId = this.props.match.params.channelId
             this.props.getChannelMessages(channelId);
@@ -18,11 +19,11 @@ class MessagesBody extends React.Component{
     }
 
     render(){
-        if(!this.props.messages || this.props.users ) return (<div>Loading</div>);
+        if(!this.props.messages || !this.props.servers[this.props.match.params.serverId] ) return (<div>Loading</div>);
         return (
              <ul>
                  {this.props.messages.map( (message) => (
-                     <li className='white'>{`${ this.props.users[message.user_id].username} : ${message.body}`} </li>
+                     <li key={`${message.id}guk`} className='white'>{`${ this.props.users[message.user_id].username} : ${message.body}`} </li>
                  ))}
              </ul>
         );

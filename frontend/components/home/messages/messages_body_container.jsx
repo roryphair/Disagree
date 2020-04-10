@@ -8,6 +8,7 @@ const msp = (state, ownProps) => {
     if(channelId){
         return {
             users: state.entities.users,
+            servers: state.entities.servers,
             messages: state.entities.messages[channelId]
         };
     } else {
