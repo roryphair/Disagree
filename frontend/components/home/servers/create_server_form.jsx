@@ -26,7 +26,7 @@ class CreateServer extends React.Component{
                <input type="text" placeholder='Enter a Server Name' value={this.state.name} onChange={this.update('name')} />
                <button className='blue'>Create</button>
            </form>
-           <button onClick={this.props.openModal}> back</button>
+           <button onClick={this.props.openModal}>BACK</button>
        </div>)
     }
 }

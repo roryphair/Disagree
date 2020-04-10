@@ -18,10 +18,14 @@ class Api::ServersController < ApplicationController
 
     def destroy
         @server = Server.find(params[:id]);
-        if @server.destroy
-            render :index
-        else
-            render json: @server.errors.full_messages, status: 404
+        if @server.admin_id == current_user.id 
+            if @server.destroy
+                render json: @server.id
+            else
+                render json: @server.errors.full_messages, status: 404
+            end
+        else 
+            render json: ['Only the admin of a server can delete it'], status: 403
         end
     end
 

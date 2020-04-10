@@ -3,7 +3,7 @@ json.servers do
     user.servers.each do |server|
         server_list << server.id
         json.set! server.id do
-            json.extract! server, :name, :id
+            json.extract! server, :name, :id, :admin_id
             json.image_url asset_path("#{server.image_url}")
         end
     end

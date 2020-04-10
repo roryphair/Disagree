@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import CreateServerContainer from '../servers/create_server_form_container';
 import CreateChannelContainer from '../channels/create_channel_container';
 import ChooseServer from '../servers/choose_server';;
-import JoinServer from '../servers/server_join_form';
+import JoinServer from '../servers/server_join_form_container';
 
 
 class Modal extends React.Component{

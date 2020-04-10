@@ -11,20 +11,33 @@ class MessagesBody extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        console.log(this.props.messages);
-        if(prevProps.match.params.channelId !== this.props.match.params.channelId){
-            const channelId = this.props.match.params.channelId
-            this.props.getChannelMessages(channelId);
+         if(prevProps.match.params.channelId !== this.props.match.params.channelId){
+             const channelId = this.props.match.params.channelId
+             this.props.getChannelMessages(channelId);
         }
     }
 
     render(){
-        if(!this.props.messages || !this.props.servers[this.props.match.params.serverId] ) return (<div>Loading</div>);
+        let messages;
+        if(!this.props.match.params.channelId){
+            messages = (<li className='white'>Join a channel to see messages</li>);
+        }
+        else if(!this.props.messages || !this.props.servers[this.props.match.params.serverId] ) {
+            messages = (<li className='white'>Loading</li>);
+        }
+        else if(this.props.messages.length === 0){
+            messages = <li className='white' >Nothing here yet, you should write something</li>
+        }
+        else{
+            messages = this.props.messages.map( (message) => (
+                
+                <li key={`${message.id}guk`} className='white'><h1>{message.user_id}</h1>{`${ this.props.users[message.user_id]? this.props.users[message.user_id].username : 'DELETED'} : ${message.body}`} </li>
+            ))
+        }
         return (
              <ul>
-                 {this.props.messages.map( (message) => (
-                     <li key={`${message.id}guk`} className='white'>{`${ this.props.users[message.user_id].username} : ${message.body}`} </li>
-                 ))}
+
+                 {messages}
              </ul>
         );
     }

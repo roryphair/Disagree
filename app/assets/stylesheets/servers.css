@@ -20,6 +20,7 @@
     white-space: nowrap;
 }
 .server-title{
+    z-index: 1;
     height: 60%;
     position: absolute;
     left: 60px;

@@ -10,7 +10,8 @@ Rails.application.routes.draw do
     resources :channels, only: [:destroy, :show] do 
       resources :channel_messages, only: [:create, :index]
     end
-    
+    resources :server_users, only: [:destroy, :create]
+    delete '/server_users', to: 'server_users#destroy'
     resources :direct_messages, only: [:create, :destroy, :show]
     resources :channel_messages, only: [:destroy]
   end
