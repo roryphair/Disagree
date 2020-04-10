@@ -11,7 +11,8 @@ class Api::ChannelMessagesController < ApplicationController
     end
 
     def index
-        @channel_messages = ChannelMessage.where(channel_id: :channel_id)
+        @channel_messages = ChannelMessage.where(channel_id: params[:channel_id])
+        @channel_id = params[:channel_id]
         render :index
     end
 

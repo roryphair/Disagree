@@ -53,7 +53,9 @@ button.blue{
 body{
     overflow: hidden;
 }
-
+.white{
+    color: white;
+}
 li{
     list-style: none;
 }

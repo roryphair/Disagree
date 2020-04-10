@@ -1,6 +1,6 @@
 import * as api_util from '../util/message_api_util';
 
-export const RECEIVE_MESSAGES = 'RECEIVE_CHANNEL';
+export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveErrors = (errors) => ({
@@ -9,7 +9,7 @@ export const receiveErrors = (errors) => ({
 });
 
 export const receiveMessages = ({messages}) => ({
-    type: RECEIVE_CHANNEL,
+    type: RECEIVE_MESSAGES,
     messages
 });
 

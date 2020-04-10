@@ -7,11 +7,11 @@ class ChannelsIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.getChannels(this.props.match.params.serverId);
+        this.props.getServer(this.props.match.params.serverId);
     }
     componentDidUpdate(prevProps){
-        if(prevProps.match.params.serverId !== this.props.match.params.serverId){
-            this.props.getChannels(this.props.match.params.serverId);
+        if(prevProps.match.params.serverId !== this.props.match.params.serverId){ 
+            this.props.getServer(this.props.match.params.serverId);
         }
     }
 
@@ -24,7 +24,7 @@ class ChannelsIndex extends React.Component{
             <ul className='channels-names-list'>
                 {this.props.channels.map( (channel) => (
                    <Link  key={channel.name} to={`/channels/${this.props.match.params.serverId}/${channel.id}`}> 
-                   <li key={channel.name} className='grey'># {channel.name}</li>
+                   <li key={`li${channel.name}`} className='grey'># {channel.name}</li>
                    </Link>
                 ) )}
             </ul>

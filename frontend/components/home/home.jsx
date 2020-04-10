@@ -14,7 +14,6 @@ class Home extends React.Component{
     }
     componentDidMount(){
         this.props.getUser(this.props.sessionId);
-        // this.props.getServers(this.props.sessionId);
     }
     render(){
         const name = this.props.user ? this.props.user.username : 'loading';
