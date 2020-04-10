@@ -16,7 +16,13 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background-image: url('signinback.jpg') ;
+}
+.session-img {
+    position: absolute;
+    display: flex;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
 }
 .session-form h2{
     color: white;

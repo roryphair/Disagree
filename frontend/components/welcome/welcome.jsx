@@ -12,13 +12,13 @@ export default (props) => {
                         <img src={window.logo} className='logo-img' alt="logo"/>
                     </div>
                     <div className='right-side' >
-                        something for now
+                    <Link to='/login'> <button className='grey'>Login</button> </Link>
                     </div>
                 </header>
             <h1>A new way to chat with your communities and friends.</h1>
             <p>Disagree is the easiest way to communicate over voice, video, and text, whether you’re part of a school club, a nightly gaming group, a worldwide art community, or just a handful of friends that want to hang out.</p>
-           <div className='splash-buttons'><Link to='/signup'> <button>Sign Up</button></Link>
-            <button onClick={props.login}>Try the Demo</button></div> 
+           <div className='splash-buttons'><Link to='/signup'> <button className='splash-butt'>Sign Up</button></Link>
+            <button className='blue splash-butt' onClick={props.login}>Try the Demo</button></div> 
             </div>
             <div className='fun-splash'>
                 

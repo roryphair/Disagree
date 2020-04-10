@@ -46,10 +46,12 @@ button {
 }
 
 button.blue{
-    width: 100%;
     color: white;
     background-color: #7289da;
 }
+.wide{
+    width: 100%;
+    }
 body{
     overflow: hidden;
 }

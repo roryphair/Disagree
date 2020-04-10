@@ -6,7 +6,8 @@ const msp = (state) =>({
     errors: Object.values(state.errors)
 })
 const mdp = (dispatch, ownProps) => ({
-    login: () => dispatch(login({email: 'demo@demo.com', password: '123456'})).then(ownProps.history.push('/channels/@me'))
+    login: () => dispatch(login({email: 'demo@demo.com', password: '123456'})).then(ownProps.history.push('/signup'))
+    
 })
 
 export default connect(msp, mdp)(Welcome);

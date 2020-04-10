@@ -8,6 +8,24 @@
     align-items: center;
     flex-direction: column;
 }
+.splash-buttons{
+    display: flex;
+    flex-direction: row;
+}
+.splash-butt {
+    width: 175px;
+    margin: 20px;
+}
+button.grey{
+    color: #fff;
+    top: 0;
+    border: 2px solid hsla(0,0%,100%,.8);
+    padding: 5px 17px 7px;
+    border-radius: 20px;
+    line-height: 24px;
+    margin-right: 18px;
+    background-color: rgb(0,0,0,0);
+}
 .splash-page p {
     width: 60%;
     color: hsla(0,0%,100%,.6);

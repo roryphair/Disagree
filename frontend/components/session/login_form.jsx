@@ -30,8 +30,9 @@ class LoginForm extends React.Component{
 
     render(){
         return ( 
-        
+            
             <div className='session-background'>
+                <img className='session-img' src={window.signinback} alt=""/>
                 <div className='session-logo'>
                 <Link to='/'>
             <div className='logo'>
@@ -55,7 +56,7 @@ class LoginForm extends React.Component{
                         
                 <label htmlFor="" id='password'> PASSWORD  </label>
                 <input type="password" onChange={this.update('password')} value={this.state.password} id='password'/>
-                <button className='blue'>Login</button>
+                <button className='blue wide'>Login</button>
             </form>
             <div className='session-bottom'><h4>Need an account? <Link to='/signup'>Register</Link></h4> <h4 className={'blue pointer'} onClick={this.props.demoLogin}>Use the Demo Account</h4>  </div>
             
