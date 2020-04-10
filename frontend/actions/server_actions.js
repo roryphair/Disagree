@@ -1,6 +1,7 @@
 import * as api_util from '../util/server_api_util';
 
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
+export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
@@ -16,6 +17,11 @@ export const receiveServer = ({server, channels, users}) => ({
     users
 });
 
+export const removeServer = (serverId) =>({
+    type: REMOVE_SERVER,
+    serverId
+})
+
 export const receiveServers = (servers) =>({
     type: RECEIVE_SERVERS,
     servers
@@ -27,6 +33,7 @@ export const getServer = (serverId) => dispatch => (
         (error) => dispatch(receiveErrors(error))
     )
 );
+
 export const getServers = () => dispatch =>(
     api_util.getServers().then( 
         (servers) => dispatch(receiveServers(servers)), 
@@ -40,9 +47,22 @@ export const createServer = (server) => dispatch =>(
         (error) => dispatch(receiveErrors(error))
         )
 );
-export const removeServer = (serverId) => dispatch =>(
+export const deleteServer = (serverId) => dispatch =>(
     api_util.removeServer(serverId).then( 
+        (serverId2) => dispatch(removeServer(serverId2)), 
+        (error) => dispatch(receiveErrors(error))
+        )
+);
+
+export const joinServer = (server) => dispatch => (
+    api_util.joinServer(server).then( 
         (server) => dispatch(receiveServer(server)), 
+        (error) => dispatch(receiveErrors(error))
+    )
+);
+export const leaveServer = (serverId, userId) => dispatch =>(
+    api_util.leaveServer(serverId, userId).then( 
+        (serverId2) => dispatch(removeServer(serverId2)), 
         (error) => dispatch(receiveErrors(error))
         )
 );

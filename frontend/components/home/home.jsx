@@ -15,6 +15,24 @@ class Home extends React.Component{
     componentDidMount(){
         this.props.getUser(this.props.sessionId);
     }
+
+    // componentDidUpdate(prevProps){
+    //     if(this.props.match.params.serverId === '@me'){
+
+    //     }  
+    //     else{
+    //         if(prevProps.match.params.serverId !== this.props.match.params.channelId){
+    //             if(prevProps.match.params.serverId !== this.props.match.params.serverId){ 
+    //         this.props.getServer(this.props.match.params.serverId);
+    //     }
+    //         }
+    //         if(prevProps.match.params.channelId !== this.props.match.params.channelId){
+    //             const channelId = this.props.match.params.channelId
+    //             this.props.getChannelMessages(channelId);
+    //         }
+    //     }
+    // }
+
     render(){
         const name = this.props.user ? this.props.user.username : 'loading';
         let serverTitle = '';
@@ -49,7 +67,7 @@ class Home extends React.Component{
             <div className='messages-main'>  
                 <div className='messages-middle'>
                     <div className='messages-bottom'>  <MessagesWrite /> </div> 
-                    <div className='messages-body'>  <MessagesBody /></div>
+                    <div className='messages-body'>  <MessagesBody messages={this.props.messages[this.props.match.params.serverId]} /></div>
                 </div>
                 {chatUsers}
             </div>

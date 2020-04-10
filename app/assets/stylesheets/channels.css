@@ -37,3 +37,14 @@
     text-align: center;
     cursor: pointer;
 }
+.leave-button{
+    width: 80%;
+    margin: 0px;
+    padding: 0px;
+    left: 0px;
+    position: absolute;
+    bottom: 00px;
+    margin: 10px;
+    font-size: 12px;
+    float: right;
+}
