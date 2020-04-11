@@ -56,11 +56,29 @@
 .channels-user{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     width: 100%;
     height: 52px;
     bottom: 0;
     background-color: rgb(41,43,47);
+}
+
+.channels-user > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.channels-user > div > h4{
+    padding: 10px 10px;
+}
+
+.channels-user button.grey{
+    font-size: 10px;
+    width: 50px;
+    padding: 0px;
+    margin: 0px;
 }
 
 .user-icon{
@@ -72,11 +90,12 @@
     display: flex;
     flex:right;
     height: 100%;
-    width: 232px;
+    width: 235px;
     flex-direction: column;
     align-items: flex-start;
     background-color: rgb(47,49,54);
 }
+
 .users-list-user{
     display: flex;
     align-items: center;
@@ -94,11 +113,18 @@
     padding: 0px;
 }
 .messages-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     box-sizing: content-box;
     border-bottom: 1px solid black;
-    height: 48px;
+    height: 49px;
     overflow: hidden;
 }
+.messages-header > *{
+    margin-left: 10px;
+}
+
 .messages-main{
     height: 100%;
     display: flex;

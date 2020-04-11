@@ -19,7 +19,7 @@ class MessagesWrite extends React.Component{
     }
 
     render(){
-        let receiverName = 'Loading';
+        let receiverName = '';
         if(this.props.receiver) {
             receiverName = this.props.match.params.channelId ==='@me' ? '@' + this.props.receiver.username : '#' + this.props.receiver.name ;
         }

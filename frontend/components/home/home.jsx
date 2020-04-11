@@ -14,6 +14,15 @@ class Home extends React.Component{
     }
     componentDidMount(){
         this.props.getUser(this.props.sessionId);
+        if(this.props.match.params.serverId === '@me'){
+
+        }  
+        else{
+            this.props.getServer(this.props.match.params.serverId);
+            if(this.props.match.params.channelId){
+                this.props.getChannelMessages(this.props.match.params.channelId);
+            }
+        }
     }
 
     componentDidUpdate(prevProps){
@@ -25,19 +34,33 @@ class Home extends React.Component{
                 this.props.getServer(this.props.match.params.serverId);
             }
             if(prevProps.match.params.channelId !== this.props.match.params.channelId){
-                const channelId = this.props.match.params.channelId
-                this.props.getChannelMessages(channelId);
+                this.props.getChannelMessages(this.props.match.params.channelId);
             }
         }
     }
 
     render(){
-        const name = this.props.user ? this.props.user.username : 'loading';
+        if(!this.props.user) return <div></div> 
         let serverTitle = '';
+        let messagePrefix;
+        let messagesHeader = '';
         let chatUsers = <div></div>
-        if(this.props.match.params.serverId !== '@me'){
-            serverTitle = this.props.server ? this.props.server.name : 'loading'
-            chatUsers = <ChatUsers users={Object.values(this.props.users)}/>;
+        if(this.props.match.params.serverId === '@me'){
+            messagePrefix = '@  ';
+            }
+        else{
+            serverTitle = this.props.server ? this.props.server.name : '';
+            messagePrefix = '#  ';
+            const currentServer = this.props.servers[this.props.match.params.serverId];
+            let newUsers = {};
+            if(currentServer && currentServer.users){
+                const users = this.props.users;
+                newUsers = currentServer.users.map((userId) => users[userId]);
+                if(this.props.match.params.channelId && this.props.channels[this.props.match.params.channelId]){
+                    messagesHeader = this.props.channels[this.props.match.params.channelId].name;
+                }
+            }
+            chatUsers = <ChatUsers users={Object.values(newUsers)}/>;
         }
         return (
             <>
@@ -56,12 +79,18 @@ class Home extends React.Component{
                 </Switch>
             </div>
             <div className='channels-user'>
-                <h2> {name}</h2>
-                <button onClick={this.props.logout}>Logout</button>
+                <div>
+                    <img  src={window.user_icon} className='icon user-icon' alt=""/> 
+                    <h4 className='white'> {this.props.user.username}</h4>
+                </div>
+                <button className='grey' onClick={this.props.logout}>Logout</button>
             </div>
         </div>
         <div className='messages-index'>
-            <div className='messages-header'>HEADER WOAH</div>
+            <div className='messages-header'> 
+                <h2 className='grey'>{messagePrefix}</h2> 
+                <h3 className='white'>{messagesHeader}</h3> 
+            </div>
             <div className='messages-main'>  
                 <div className='messages-middle'>
                     <div className='messages-bottom'>  <MessagesWrite /> </div> 

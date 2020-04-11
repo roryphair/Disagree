@@ -9,12 +9,12 @@ class ChannelsIndex extends React.Component{
     }
 
     componentDidMount(){
-        this.props.getServer(this.props.match.params.serverId);
+        // this.props.getServer(this.props.match.params.serverId);
     }
     componentDidUpdate(prevProps){
-        if(prevProps.match.params.serverId !== this.props.match.params.serverId){ 
-            this.props.getServer(this.props.match.params.serverId);
-        }
+        // if(prevProps.match.params.serverId !== this.props.match.params.serverId){ 
+        //     this.props.getServer(this.props.match.params.serverId);
+        // }
     }
 
     sendDelete(){

@@ -5,25 +5,13 @@ class MessagesBody extends React.Component{
         super(props);
     }
 
-    componentDidMount(){
-        const channelId = this.props.match.params.channelId
-        this.props.getChannelMessages(channelId);
-    }
-
-    componentDidUpdate(prevProps){
-         if(prevProps.match.params.channelId !== this.props.match.params.channelId){
-             const channelId = this.props.match.params.channelId
-             this.props.getChannelMessages(channelId);
-        }
-    }
-
     render(){
         let messages;
         if(!this.props.match.params.channelId){
             messages = (<li className='white'>Join a channel to see messages</li>);
         }
         else if(!this.props.messages || !this.props.servers[this.props.match.params.serverId] ) {
-            messages = (<li className='white'>Loading</li>);
+            messages = (<li className='white'></li>);
         }
         else if(this.props.messages.length === 0){
             messages = <li className='white' >Nothing here yet, you should write something</li>
@@ -36,7 +24,6 @@ class MessagesBody extends React.Component{
         }
         return (
              <ul>
-
                  {messages}
              </ul>
         );
