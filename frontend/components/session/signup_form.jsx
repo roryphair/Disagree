@@ -48,7 +48,7 @@ class SignupForm extends React.Component{
                 <input type="text" onChange={this.update('username')} value={this.state.username} id='username'/>
                 
                 <label htmlFor="" id='email'>  EMAIL</label>
-                <input type="text" onChange={this.update('email')} value={this.state.email}  id='email'/>
+                <input type="email" onChange={this.update('email')} value={this.state.email}  id='email'/>
                     
                 <label htmlFor="" id='password'> PASSWORD  </label>
                 <input type="password" onChange={this.update('password')} value={this.state.password} id='password'/>

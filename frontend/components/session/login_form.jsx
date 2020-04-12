@@ -51,7 +51,7 @@ class LoginForm extends React.Component{
                 <h3>We're so excited to see you again!</h3>
                 
                 <label htmlFor="" id='email'> EMAIL </label>
-                <input type="text" onChange={this.update('email')} value={this.state.email} id='email'/>
+                <input type="email" onChange={this.update('email')} value={this.state.email} id='email'/>
                     
                         
                 <label htmlFor="" id='password'> PASSWORD  </label>

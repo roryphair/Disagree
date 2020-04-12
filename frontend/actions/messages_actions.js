@@ -1,6 +1,7 @@
 import * as api_util from '../util/message_api_util';
 
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
+export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveErrors = (errors) => ({
@@ -13,6 +14,12 @@ export const receiveMessages = ({messages}) => ({
     messages
 });
 
+export const receiveMessage = ({message, channelId}) => ({
+    type: RECEIVE_MESSAGE,
+    message,
+    channelId
+});
+
 export const getChannelMessages = (channelId, receiverId) => dispatch =>(
     api_util.getChannelMessages(channelId, receiverId).then( 
         (Messages) => dispatch(receiveMessages(Messages)), 
@@ -22,13 +29,15 @@ export const getChannelMessages = (channelId, receiverId) => dispatch =>(
 
 export const createChannelMessage = (directMessage, receiverId) => dispatch =>(
     api_util.createChannelMessage(directMessage, receiverId).then( 
-        (directMessage) => dispatch(receiveMessages(directMessage)), 
+        () => {}
+        // (directMessage) => dispatch(receiveMessage(directMessage)
+        , 
         (error) => dispatch(receiveErrors(error))
         )
 );
 export const createDirectMessage = (directMessage, serverId) => dispatch =>(
     api_util.createDirectMessage(directMessage, serverId).then( 
-        (directMessage) => dispatch(receiveMessages(directMessage)), 
+        (directMessage) => dispatch(receiveMessage(directMessage)), 
         (error) => dispatch(receiveErrors(error))
         )
 );

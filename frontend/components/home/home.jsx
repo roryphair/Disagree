@@ -12,6 +12,7 @@ class Home extends React.Component{
     constructor(props){
         super(props);
     }
+
     componentDidMount(){
         this.props.getUser(this.props.sessionId);
         if(this.props.match.params.serverId === '@me'){
@@ -21,6 +22,7 @@ class Home extends React.Component{
             this.props.getServer(this.props.match.params.serverId);
             if(this.props.match.params.channelId){
                 this.props.getChannelMessages(this.props.match.params.channelId);
+                this.props.subscribeToChannelMessages(this.props.match.params.channelId);
             }
         }
     }
@@ -30,11 +32,16 @@ class Home extends React.Component{
 
         }  
         else{
-            if(prevProps.match.params.serverId !== this.props.match.params.serverId){ 
+            console.log(this.props.messages)
+            console.log(!this.props.messages)
+            console.log((prevProps.match.params.channelId !== this.props.match.params.channelId) && !this.props.messages)
+            if(prevProps.match.params.serverId !== this.props.match.params.serverId && this.props.server){ 
                 this.props.getServer(this.props.match.params.serverId);
             }
-            if(prevProps.match.params.channelId !== this.props.match.params.channelId){
+            if((prevProps.match.params.channelId !== this.props.match.params.channelId) && !this.props.messages) {
+                console.log('wizard');
                 this.props.getChannelMessages(this.props.match.params.channelId);
+                this.props.subscribeToChannelMessages(this.props.match.params.channelId);
             }
         }
     }
@@ -60,7 +67,8 @@ class Home extends React.Component{
                     messagesHeader = this.props.channels[this.props.match.params.channelId].name;
                 }
             }
-            chatUsers = <ChatUsers users={Object.values(newUsers)}/>;
+            const chatters = Object.values(newUsers);
+            chatUsers = <ChatUsers users={chatters} usersLength={chatters.length}/>;
         }
         return (
             <>
@@ -94,7 +102,7 @@ class Home extends React.Component{
             <div className='messages-main'>  
                 <div className='messages-middle'>
                     <div className='messages-bottom'>  <MessagesWrite /> </div> 
-                    <div className='messages-body'>  <MessagesBody messages={this.props.messages[this.props.match.params.serverId]} /></div>
+                    <div className='messages-body'>  <MessagesBody length={this.props.length} messages={this.props.messages} /></div>
                 </div>
                 {chatUsers}
             </div>

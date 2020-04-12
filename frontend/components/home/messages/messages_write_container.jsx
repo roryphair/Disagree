@@ -18,7 +18,6 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch,ownProps) => {
-    console.log(ownProps.match.params.channelId);
     if(ownProps.match.params.channelId === '@me'){
         return {
             createMessage: (channelId, receiverId) => dispatch(createDirectMessage(channelId, receiverId)),

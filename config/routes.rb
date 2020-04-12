@@ -17,4 +17,5 @@ Rails.application.routes.draw do
     resources :direct_messages, only: [ :destroy]
     resources :channel_messages, only: [:destroy]
   end
+  mount ActionCable.server => '/cable'
 end

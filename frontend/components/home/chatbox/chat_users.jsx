@@ -7,7 +7,7 @@ class chatUsers extends React.Component{
     render(){
         return (
             <div className='chat-users'> 
-                <h4 className='grey'>Users- {this.props.users.length} </h4>
+                <h4 className='grey'>Users- {this.props.usersLength} </h4>
                 <ul className='users-list'>
                     {this.props.users.map((user) => (<li key={user.username} className='grey users-list-user' >
                         <img  src={window.user_icon} className='icon user-icon' alt=""/>
