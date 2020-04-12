@@ -10,11 +10,12 @@ export const receiveErrors = (errors) => ({
     errors
 });
 
-export const receiveServer = ({server, channels, users}) => ({
+export const receiveServer = ({server, channels, users, currentUserId}) => ({
     type: RECEIVE_SERVER,
     server,
     channels,
-    users
+    users,
+    currentUserId
 });
 
 export const removeServer = (serverId) =>({

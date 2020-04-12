@@ -36,7 +36,6 @@ const mdp = (dispatch) => ({
     getServer: (serverId) => dispatch(getServer(serverId)),
     getChannelMessages: (channelId) => dispatch(getChannelMessages(channelId)),
     subscribeToChannelMessages: (channelId) => subscribeToChannelMessages(channelId, dispatch),
-})
-
+});
 
 export default withRouter(connect(msp,mdp)(Home));

@@ -11,15 +11,16 @@ end
 
 dms= {}
 user.dms_authored.each do |dm|
-    dms[dm] = true
+    dms[dm.receiver_id] = true
 end
 user.dms_received.each do |dm|
-    dms[dm] = true
+    dms[dm.author_id] = true
 end
 
 
 json.user do 
-    json.extract! user, :id, :username, :email, :image_url
+    json.extract! user, :id, :username, :email 
+    json.image_url asset_path("#{user.image_url}")
     json.servers server_list
     json.users_dmed dms
 end

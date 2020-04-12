@@ -32,9 +32,6 @@ class Home extends React.Component{
 
         }  
         else{
-            console.log(this.props.messages)
-            console.log(!this.props.messages)
-            console.log((prevProps.match.params.channelId !== this.props.match.params.channelId) && !this.props.messages)
             if(prevProps.match.params.serverId !== this.props.match.params.serverId && this.props.server){ 
                 this.props.getServer(this.props.match.params.serverId);
             }

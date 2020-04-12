@@ -31,6 +31,7 @@ class Api::ServersController < ApplicationController
 
     def show 
         @server = Server.find(params[:id])
+        @current_user_id = current_user.id
         render :show
     end
 
