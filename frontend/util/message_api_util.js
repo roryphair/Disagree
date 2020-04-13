@@ -6,10 +6,10 @@ export const getChannelMessages = (channelsId) => (
     })
 )
 
-export const getDirectMessages = (serverId) => (
+export const getDirectMessages = (userId) => (
     $.ajax({
         method: 'GET',
-        url: `/api/servers/${serverId}/channel`
+        url: `/api/users/${userId}/direct_messages`
     })
 )
 

@@ -5,15 +5,15 @@ import {getChannelMessages} from '../../../actions/messages_actions'
 
 const msp = (state, ownProps) => {
     const channelId = ownProps.match.params.channelId;
-    if(channelId){
+    const serverId = ownProps.match.params.serverId;
+    if(serverId !== '@me'){
         return {
             users: state.entities.users,
-            servers: state.entities.servers,
-            messages: state.entities.messages[channelId]
+            receiver: state.entities.servers[serverId],
         };
     } else {
         return {
-            messages: state.entities.messages[`dm${channelId}`],
+            receiver: state.entities.users[channelId],
             users: state.entities.users,
         };
     }

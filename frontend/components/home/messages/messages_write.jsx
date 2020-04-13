@@ -9,8 +9,7 @@ class MessagesWrite extends React.Component{
 
     handleSubmit(e){
         e.preventDefault();
-        const receiverId = this.props.match.params.channelId;
-        this.props.createMessage(this.state, receiverId);
+        this.props.createMessage(this.state, this.props.match.params.channelId);
         this.setState({body: ''});
     }
 

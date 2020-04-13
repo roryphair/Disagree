@@ -4,7 +4,6 @@ class Api::ChannelMessagesController < ApplicationController
         @channel_message.channel_id = params[:channel_id]
         @channel_message.user_id = current_user.id
         if @channel_message.save
-            # @channel_messages = ChannelMessage.where(channel_id: params[:channel_id])
             @channel_id = params[:channel_id]
             new_message = {
                 message: {
@@ -16,12 +15,14 @@ class Api::ChannelMessagesController < ApplicationController
                 },
                 channelId: @channel_id,
             }
+            
             ChannelMessagesChannel.speak(params[:channel_id], new_message.as_json)
             render :show
         else
             render json: @channel_message.errors.full_messages, status: 404
         end
     end
+
 
     def index
         @channel_messages = ChannelMessage.where(channel_id: params[:channel_id])

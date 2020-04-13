@@ -66,7 +66,7 @@ class MessagesBody extends React.Component{
         if(!this.props.match.params.channelId){
             messages = (<li className='white'>Join a channel to see messages</li>);
         }
-        else if(!this.props.messages || !this.props.servers[this.props.match.params.serverId] ) {
+        else if(!this.props.messages || !this.props.receiver ) {
             messages = (<li className='white'></li>);
         }
         else if(this.props.messages.length === 0){

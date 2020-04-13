@@ -27,17 +27,17 @@ export const getChannelMessages = (channelId, receiverId) => dispatch =>(
         )
 );
 
-export const createChannelMessage = (directMessage, receiverId) => dispatch =>(
-    api_util.createChannelMessage(directMessage, receiverId).then( 
-        () => {}
+export const createChannelMessage = (directMessage, serverId) => dispatch =>(
+    api_util.createChannelMessage(directMessage, serverId).then( 
+        () => {},
         // (directMessage) => dispatch(receiveMessage(directMessage)
-        , 
         (error) => dispatch(receiveErrors(error))
         )
 );
-export const createDirectMessage = (directMessage, serverId) => dispatch =>(
-    api_util.createDirectMessage(directMessage, serverId).then( 
-        (directMessage) => dispatch(receiveMessage(directMessage)), 
+export const createDirectMessage = (directMessage,receiverId) => dispatch =>(
+    api_util.createDirectMessage(directMessage,receiverId).then(
+        () =>{},
+        // (directMessage) => dispatch(receiveMessage(directMessage)), 
         (error) => dispatch(receiveErrors(error))
         )
 );
