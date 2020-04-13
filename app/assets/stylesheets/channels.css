@@ -48,3 +48,17 @@
     font-size: 12px;
     float: right;
 }
+.channel-item {
+    box-sizing: border-box;
+    font-size: 12px;
+}
+.channel-item:hover{
+    color: white;
+    background-color: rgb(65, 65, 65);
+    border-radius: 10px;
+}
+.selected {
+    color: white;
+    background-color: rgb(65, 65, 65);
+    border-radius: 10px;
+}

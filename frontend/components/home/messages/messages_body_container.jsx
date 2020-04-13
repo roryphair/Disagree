@@ -13,7 +13,8 @@ const msp = (state, ownProps) => {
         };
     } else {
         return {
-            messages: null
+            messages: state.entities.messages[`dm${channelId}`],
+            users: state.entities.users,
         };
     }
 }

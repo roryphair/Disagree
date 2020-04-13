@@ -16,7 +16,8 @@ class Home extends React.Component{
     componentDidMount(){
         this.props.getUser(this.props.sessionId);
         if(this.props.match.params.serverId === '@me'){
-
+            this.props.getDirectMessages(this.props.match.params.channelId);
+            this.props.subscribeToDirectMessages(this.props.match.params.channelId);
         }  
         else{
             this.props.getServer(this.props.match.params.serverId);
@@ -29,7 +30,10 @@ class Home extends React.Component{
 
     componentDidUpdate(prevProps){
         if(this.props.match.params.serverId === '@me'){
-
+            if((prevProps.match.params.channelId !== this.props.match.params.channelId)) {
+            this.props.getDirectMessages(this.props.match.params.channelId);
+            this.props.subscribeToDirectMessages(this.props.match.params.channelId);
+            }
         }  
         else{
             if(prevProps.match.params.serverId !== this.props.match.params.serverId && this.props.server){ 
@@ -50,7 +54,10 @@ class Home extends React.Component{
         let chatUsers = <div></div>
         if(this.props.match.params.serverId === '@me'){
             messagePrefix = '@  ';
-            }
+            if(this.props.match.params.channelId && this.props.users[this.props.match.params.channelId] ){
+                messagesHeader = this.props.users[this.props.match.params.channelId].username;
+            }    
+        }
         else{
             serverTitle = this.props.server ? this.props.server.name : '';
             messagePrefix = '#  ';
@@ -79,7 +86,9 @@ class Home extends React.Component{
             </div>
             <div className='channels-list'>
                 <Switch>
-                    <Route path='/channels/@me' component={DMIndex}/>
+                    <Route path='/channels/@me/:channelId' component={DMIndex}/>
+                    <Route path='/channels/@me/' component={DMIndex}/>
+                    <Route path='/channels/:serverId/:channelId' component={ChannelsIndex}/>
                     <Route path='/channels/:serverId' component={ChannelsIndex}/>
                 </Switch>
             </div>

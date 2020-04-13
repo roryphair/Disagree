@@ -3,7 +3,8 @@ class Api::ServerUsersController < ApplicationController
     def create
         @server_user = ServerUser.new()
         @server_user.role = 'peon'
-        @server_user.server_id = Server.find_by(name: params[:server_name]).id
+        server = Server.find_by(name: params[:server_name])
+        @server_user.server_id = server.id if server
         @server_user.user_id = current_user.id
         if@server_user.save
             @server = Server.find(@server_user.server_id)

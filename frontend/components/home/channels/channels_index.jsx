@@ -26,6 +26,7 @@ class ChannelsIndex extends React.Component{
     render(){
         if (this.props.channels.length === 0) return (<div className='text-channels'> loading</div>)
         let leaveButton;
+        
         if(this.props.server){
             if(this.props.server.admin_id === this.props.userId) {
                 leaveButton =<button className='grey wide' onClick={this.sendDelete}>Delete Server</button>
@@ -41,7 +42,7 @@ class ChannelsIndex extends React.Component{
             <ul className='channels-names-list'>
                 {this.props.channels.map( (channel) => (
                    <Link  key={channel.name} to={`/channels/${this.props.match.params.serverId}/${channel.id}`}> 
-                   <li key={`li${channel.name}`} className='grey'># {channel.name}</li>
+                   <li key={`li${channel.name}`} className={'channel-item ' + (this.props.match.params.channelId == channel.id ? 'selected' : 'grey')}># {channel.name}</li>
                    </Link>
                 ) )}
             </ul>

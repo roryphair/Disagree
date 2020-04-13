@@ -7,7 +7,7 @@ import {withRouter} from 'react-router-dom';
 const msp = (state, ownProps) => ({
     server: state.entities.servers[ownProps.match.params.serverId],
     userId: state.session.id,
-    channels: Object.values(state.entities.channels)
+    channels: Object.values(state.entities.channels),
 })
 const mdp = (dispatch) => ({
     openModal: () => dispatch(openModal('channelCreateForm')),

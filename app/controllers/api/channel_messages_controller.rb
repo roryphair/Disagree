@@ -11,6 +11,8 @@ class Api::ChannelMessagesController < ApplicationController
                     id: @channel_message.id,
                     user_id: @channel_message.user_id,
                     body: @channel_message.body,
+                    created_at: @channel_message.created_at,
+                    updated_at:  @channel_message.updated_at.strftime("%m/%d/%Y %I:%M%p"),
                 },
                 channelId: @channel_id,
             }

@@ -4,11 +4,10 @@ import {withRouter} from 'react-router-dom';
 import {createChannelMessage, createDirectMessage} from '../../../actions/messages_actions'
 
 const msp = (state, ownProps) => {
-    if(ownProps.match.params.channelId === '@me'){
-        // return {
-        //     receiver: state.entities.channels[ownProps.match.params.channelId].username,
-        // };
-        return {}
+    if(ownProps.match.params.serverId === '@me'){
+        return {
+            receiver: state.entities.users[ownProps.match.params.channelId],
+        };
     } 
     else {
         return{
@@ -18,7 +17,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch,ownProps) => {
-    if(ownProps.match.params.channelId === '@me'){
+    if(ownProps.match.params.serverId === '@me'){
         return {
             createMessage: (channelId, receiverId) => dispatch(createDirectMessage(channelId, receiverId)),
         };

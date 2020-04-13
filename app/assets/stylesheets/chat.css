@@ -43,4 +43,11 @@
 }
 .start{
     padding-top: 15px;
+    padding-bottom: 5px;
+}
+.chat-username{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 18px;
+
 }

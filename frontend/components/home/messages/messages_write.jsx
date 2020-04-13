@@ -21,7 +21,7 @@ class MessagesWrite extends React.Component{
     render(){
         let receiverName = '';
         if(this.props.receiver) {
-            receiverName = this.props.match.params.channelId ==='@me' ? '@' + this.props.receiver.username : '#' + this.props.receiver.name ;
+            receiverName = this.props.match.params.serverId ==='@me' ? '@' + this.props.receiver.username : '#' + this.props.receiver.name ;
         }
          return (
             <div className='chat-box-input'>
