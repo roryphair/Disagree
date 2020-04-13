@@ -6,7 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis:https://blog.heroku.com/real_time_rails_implementing_websockets_in_rails_5_with_action_cable" } %>
+  url: <%= ENV.fetch("REDIS_URL") { "redis://redistogo:5b17876267fcc8b866e2384354bb7599@pike.redistogo.com:10826/" } %>
   channel_prefix: Discord_production
-
-  
