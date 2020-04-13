@@ -5,8 +5,11 @@ import {getChannelMessages, receiveMessage} from '../../actions/messages_actions
 import Home from './home';
 import {withRouter} from 'react-router-dom'
 
+let sub;
+
 function subscribeToChannelMessages (channelId, dispatch){
-    App.cable.subscriptions.create(
+    if(sub) sub = sub.unsubscribe();
+    sub = App.cable.subscriptions.create(
         {channel: 'ChannelMessagesChannel', channelId: channelId},
         {
             received: message => dispatch(receiveMessage(message))
