@@ -11,7 +11,6 @@ class MessagesBody extends React.Component{
     listLogic(messages){
         let i = 1;
         const messagesArray = [];
-        debugger
         messagesArray.push(this.createFullMessage(messages[0], this.props.users[messages[0].user_id]));
         while( i < messages.length){
             if(messages[i-1].user_id  !== messages[i].user_id){
@@ -27,24 +26,38 @@ class MessagesBody extends React.Component{
 
     createFullMessage(message, user){
         return (
-            <li className='chat-message-main'>
+            <div key={message.id}>
+           
+            <div  className='chat-message-main start'> 
                 <div className='chat-message-image' > 
                     <img className='icon user-icon' src={window.user_icon} alt=""/>
                 </div> 
-                <div className='chat-username white'> {user ? user.username : ''}  </div>
-                <div className='grey'>{message.updated_at}</div>
-                <div className='white'>{message.body}</div>
-            </li>
+                <li >
+                    <div className='chat-username white'> {user ? user.username : 'DELETED'}  </div>
+                    
+                    <div className='grey'>{`:  ${message.updated_at}`}</div> 
+                </li>
+            </div>
+            <div className='chat-message-main'> 
+                <div className='chat-message-image' > 
+                </div> 
+                <li >
+                    <div className='white'>{message.body}</div>
+                </li>
+            </div>
+        </div>
         )
     }
 
     createSmallMessage(message){
-        return (
-            <li className='chat-message-main'>
-                <div className='chat-message-image' > 
+        return ( 
+            <div  key={message.id} className='chat-message-main'> 
+                <div className='chat-message-image'> 
                 </div> 
-                <div className='white'>{message.body}</div>
-            </li>
+                <li >
+                    <div className='white'>{message.body}</div>
+                </li>
+            </div>
         )
     }
 

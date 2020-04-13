@@ -42,10 +42,11 @@ class LoginForm extends React.Component{
                     </Link>
            </div>
         <div className='session-form'>
-            
-            <ul>
-                    {this.props.errors.length > 0 ? this.props.errors.map((error,idx) =>  <li key={idx}> {error}</li>) : null}
-            </ul>
+             {this.props.errors.length > 0 ? (
+                <ul>
+                    {this.props.errors.map((error,idx) =>  <li key={idx}> {error}</li>)} 
+                </ul>
+             ) : null}
             <form action="" onSubmit={this.handleSubmit}>
                 <h2>Welcome back!</h2>
                 <h3>We're so excited to see you again!</h3>

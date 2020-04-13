@@ -41,6 +41,7 @@ button {
 .blue{
     color: #7289da;
 }
+
 .grey{
     color: #8e9297;
 }
@@ -48,6 +49,25 @@ button {
 button.blue{
     color: white;
     background-color: #7289da;
+}
+button.blue:hover{
+    background-color: #5a71c5;
+}
+
+button.grey{
+    color: #8e9297;
+    top: 0;
+    border: 2px solid #8e9297;
+    padding: 5px 17px 7px;
+    border-radius: 20px;
+    line-height: 24px;
+    margin-right: 18px;
+    background-color: rgba(0,0,0,0);
+}
+
+button.grey:hover{
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.8);
 }
 .wide{
     width: 100%;
@@ -67,6 +87,7 @@ h1{
 }
 p{
     color: grey;
+    font-family: Whitney, Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 .pointer {

@@ -6,11 +6,12 @@ export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const RESET_ERRORS = 'RESET_ERRORS';
 
 
-export const receiveCurrentUser = ({user, servers}) => (
+export const receiveCurrentUser = ({users, servers, currentUser}) => (
     {
         type: RECEIVE_CURRENT_USER,
-        user,
-        servers
+        users,
+        servers,
+        currentUser
     }
 );
 

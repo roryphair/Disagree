@@ -19,3 +19,28 @@
 .chat-text {
     padding: 10px 0px;
 }
+.chat-message-main{
+    width: 100%;
+    margin: 0px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 0px 16px;
+    box-sizing: border-box;
+}
+.chat-message-image{
+    width: 40px;
+    height: 25px;
+}
+.messages-body ul{
+    width: 100%;
+    margin: 0px;
+    padding: 10px 0px;;
+}
+.messages-body li{
+    display: flex;
+    width: 100%;
+}
+.start{
+    padding-top: 15px;
+}

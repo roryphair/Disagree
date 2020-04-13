@@ -16,7 +16,7 @@ function subscribeToChannelMessages (channelId, dispatch){
 
 const msp = (state, ownProps) => {
     const channelId = ownProps.match.params.channelId ? ownProps.match.params.channelId : 0;
-    const length = state.entities.messages[channelId] ? state.entities.messages[channelId].length : 0;
+    const messlength = state.entities.messages[channelId] ? state.entities.messages[channelId].length : 0;
     const usersLength = state.entities.users.length;
     return {
         user: state.entities.users[state.session.id],
@@ -26,7 +26,7 @@ const msp = (state, ownProps) => {
         servers: state.entities.servers,
         messages: state.entities.messages[channelId],
         channels: state.entities.channels,
-        length: length,
+        messlength: messlength,
         usersLength: usersLength
 }};
 

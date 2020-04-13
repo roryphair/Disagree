@@ -2,11 +2,12 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    min-height: 950px;
+    min-height: 1000px;
     position: relative;
 }
 .splash-body{
     display: flex;
+    width: 80%;
     align-items: center;
     flex-direction: column;
 }
@@ -15,27 +16,25 @@
     flex-direction: row;
 }
 .splash-butt {
-    width: 175px;
+    width: 225px;
     margin: 20px;
+    font-size: 17px;
+    height: 50px;
 }
-button.grey{
-    color: #fff;
-    top: 0;
-    border: 2px solid hsla(0,0%,100%,.8);
-    padding: 5px 17px 7px;
-    border-radius: 20px;
-    line-height: 24px;
-    margin-right: 18px;
-    background-color: rgba(0,0,0,0);
+.splash-page h1{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 44px;
+    margin: 0;
 }
 .splash-page p {
-    width: 60%;
+    max-width: 710px;
     color: hsla(0,0%,100%,.6);
-    font-weight: 400;
-    font-size: 20px;
-}
-.splash-body p{
+    font-weight: 200;
+    font-size: 14px;
     text-align: center;
+    line-height: 24px;
 }
 .logo img{
     height: 45px;
@@ -53,6 +52,7 @@ img.logo-img{
 .splash-header{
     width: 100%;
     height: 100px;
+    margin: 20px 40px;
 }
 .right-side{
     display: flex;

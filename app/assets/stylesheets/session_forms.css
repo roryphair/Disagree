@@ -3,15 +3,15 @@
     border: 1px solid;
     display: flex;
     position: absolute;;
-    right: 20%;
-    left: 20%;
-    top:20%;
+    left: 30%;
+    top: 20%;
     flex-direction: column;
-    padding: 30px;
+    padding:  10px 30px 20px 30px;
     color: #8e9297;
     width: 500px;
     border-radius: 8px;
 }
+
 .session-background{
     position: absolute;
     height: 100%;
@@ -32,15 +32,19 @@
     padding: 0px;
 }
 .session-form > form > *{
-    padding: 20px 0px;
+    padding: 10px 0px;
     margin: 20px 0px;
+}
+.session-form > form > label{
+    padding-bottom: 2px;
+    font-size: 13px;
 }
 .session-form input {
     width: 96%;
     border: black 1px solid;
     border-radius: 5px;
     color: white;
-    background-color: #202122;
+    background-color: #2e2e2e;
     padding: 10px;
 }
 

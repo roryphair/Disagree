@@ -5,7 +5,6 @@ const serversReducer = (state = {}, action) =>{
     Object.freeze(state);
     switch(action.type){
         case REMOVE_SERVER:
-            debugger
             const new_servers = Object.assign({}, state);
             delete new_servers[action.serverId]
             return new_servers;
