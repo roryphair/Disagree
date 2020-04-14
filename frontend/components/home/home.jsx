@@ -37,7 +37,7 @@ class Home extends React.Component{
         if(this.props.match.params.serverId === '@me'){
 
             if(this.props.match.params.channelId && (prevProps.match.params.channelId !== this.props.match.params.channelId)) {
-                this.props.getDirectMessages(this.props.channelId);
+                this.props.getDirectMessages(this.props.match.params.channelId);
                 this.props.subscribeToChannelMessages(this.props.channelId);
             }
         }  

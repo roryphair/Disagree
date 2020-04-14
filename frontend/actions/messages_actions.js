@@ -41,6 +41,14 @@ export const createDirectMessage = (directMessage,receiverId) => dispatch =>(
         (error) => dispatch(receiveErrors(error))
         )
 );
+
+export const createFirstDirectMessage = (directMessage) => dispatch =>(
+    api_util.createFirstDirectMessage(directMessage).then(
+        (directMessage) => dispatch(receiveMessage(directMessage)), 
+        (error) => dispatch(receiveErrors(error))
+        )
+);
+
 export const getDirectMessages = (author_id, receiver_id) => dispatch =>(
     api_util.getDirectMessages(author_id, receiver_id).then( 
         (Messages) => dispatch(receiveMessages(Messages)), 

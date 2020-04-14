@@ -29,6 +29,14 @@ export const createDirectMessage = (message, receiver_id) => (
     })
 )
 
+export const createFirstDirectMessage = (message) => (
+    $.ajax({
+        method: 'POST',
+        url: `/api/direct_messages_first`,
+        data: {message}
+    })
+)
+
 
 export const removeChannelMessage = (messagesId) => (
     $.ajax({

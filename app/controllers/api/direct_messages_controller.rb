@@ -30,6 +30,25 @@ class Api::DirectMessagesController < ApplicationController
         end
     end
 
+    def create_first
+        user = User.find_by(username: params[:message][:username])
+        if user
+            @direct_message = DirectMessage.new(direct_message_params);
+            @direct_message.author_id = current_user.id
+            @direct_message.receiver_id = user.id
+            if @direct_message.save
+                @channel_id = channelLogic(@direct_message.author_id, @direct_message.receiver_id)
+                render :show
+            else
+                render json: @direct_message.errors.full_messages, status: 404
+            end
+        else
+            render json: ['That user does not exist'], status: 404
+        end
+      
+    end
+
+
     def index
         @messages = DirectMessage.where("author_id = ? OR author_id = ?", params[:user_id], current_user.id).where("receiver_id = ? OR receiver_id = ?", params[:user_id], current_user.id )
         @id = channelLogic(params[:user_id].to_i, current_user.id) 

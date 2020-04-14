@@ -3,6 +3,7 @@ import { closeModal, openModal } from '../../../actions/modal_actions';
 import { connect } from 'react-redux';
 import CreateServerContainer from '../servers/create_server_form_container';
 import CreateChannelContainer from '../channels/create_channel_container';
+import CreateDMForm from '../messages/new_dm_form_container';
 import ChooseServer from '../servers/choose_server';;
 import JoinServer from '../servers/server_join_form_container';
 
@@ -28,6 +29,9 @@ class Modal extends React.Component{
                 break;
             case 'serverJoinForm':
                 displayComp = <JoinServer />
+                break
+            case 'dmCreateForm':
+                displayComp = <CreateDMForm />
                 break
             default:
                 return null;
