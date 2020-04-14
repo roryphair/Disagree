@@ -1,6 +1,7 @@
 import {connect} from 'react-redux';
 import {logout, getUser } from '../../actions/session_actions';
 import {getServer } from '../../actions/server_actions';
+import {closeModal} from '../../actions/modal_actions';
 import {getChannelMessages, receiveMessage, getDirectMessages} from '../../actions/messages_actions'
 import Home from './home';
 import {withRouter} from 'react-router-dom';
@@ -50,6 +51,7 @@ const mdp = (dispatch) => ({
     getChannelMessages: (channelId) => dispatch(getChannelMessages(channelId)),
     subscribeToChannelMessages: (channelId) => subscribeToChannelMessages(channelId, dispatch),
     getDirectMessages: (channelId) => dispatch(getDirectMessages(channelId)),
+    closeModal: () => dispatch(closeModal()),
 });
 
 export default withRouter(connect(msp,mdp)(Home));

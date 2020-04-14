@@ -10,8 +10,8 @@ const serversReducer = (state = {}, action) =>{
             return new_servers;
         case RECEIVE_SERVERS:
         case RECEIVE_CURRENT_USER:
-            if (!action.servers) return []
-            return action.servers;
+            if (!action.servers) return {}
+            return Object.assign({}, action.servers, state, );
         case RECEIVE_SERVER:
             return Object.assign({}, state, {[action.server.id]: action.server});
         default:

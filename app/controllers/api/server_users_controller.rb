@@ -7,10 +7,11 @@ class Api::ServerUsersController < ApplicationController
         @server_user.server_id = server.id if server
         @server_user.user_id = current_user.id
         if@server_user.save
+            @current_user_id = @server_user.user_id
             @server = Server.find(@server_user.server_id)
             render 'api/servers/show'
         else
-            render json: @server_user.errors.full_messages, status: 404
+            render json: ["Can't find that server, Sorry."], status: 404
         end
     end
 

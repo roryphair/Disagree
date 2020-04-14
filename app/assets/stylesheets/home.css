@@ -40,9 +40,10 @@
     align-items: stretch;
 }
 .channels-title{
+    overflow: hidden;
     display: flex;
     box-sizing: content-box;
-    height: 52px;
+    min-height: 50px;
     border-bottom: 1px solid black;
     overflow: hidden;
     align-items: center;
@@ -113,14 +114,16 @@
     padding: 0px;
 }
 .messages-header{
+    overflow: hidden;
     display: flex;
     flex-direction: row;
     align-items: center;
     box-sizing: content-box;
     border-bottom: 1px solid black;
-    height: 49px;
+    min-height: 50px;
 }
 .messages-header > *{
+    margin: 0px;
     margin-left: 10px;
 }
 

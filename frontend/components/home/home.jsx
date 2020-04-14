@@ -30,8 +30,6 @@ class Home extends React.Component{
         }
     }
 
-   
-
     componentDidUpdate(prevProps){
         
         if(this.props.match.params.serverId === '@me'){
@@ -39,15 +37,18 @@ class Home extends React.Component{
             if(this.props.match.params.channelId && (prevProps.match.params.channelId !== this.props.match.params.channelId)) {
                 this.props.getDirectMessages(this.props.match.params.channelId);
                 this.props.subscribeToChannelMessages(this.props.channelId);
+                this.props.closeModal();
             }
         }  
         else{
             if(prevProps.match.params.serverId !== this.props.match.params.serverId && this.props.server){ 
                 this.props.getServer(this.props.match.params.serverId);
+                this.props.closeModal();
             }
             if((prevProps.match.params.channelId !== this.props.match.params.channelId)) {
                 this.props.getChannelMessages(this.props.channelId);
                 this.props.subscribeToChannelMessages(this.props.channelId);
+                this.props.closeModal();
             }
         }
     }
@@ -70,7 +71,6 @@ class Home extends React.Component{
             const currentServer = this.props.servers[this.props.match.params.serverId];
             let newUsers = {};
             if(currentServer && currentServer.users){
-                console.log('wizard');
                 const users = this.props.users;
                 newUsers = currentServer.users.map((userId) => users[userId]);
                 if(this.props.match.params.channelId && this.props.channels[this.props.match.params.channelId]){

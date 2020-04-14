@@ -13,6 +13,7 @@
 class Server < ApplicationRecord
 
     validates :name, :admin_id, presence: true
+    validates :name, uniqueness: true
     validates :public, inclusion: { in: [true, false] }
 
     belongs_to :admin,
