@@ -19,14 +19,19 @@ class CreateServer extends React.Component{
     }
     render(){
        return (<div className='create-server'>
+           <div>
            <h1 className='blue'>Create Your Server</h1>
-           <p>By creating a server, you will have access to free voice and text chat to use amongst your friends.</p>
+           <p>By creating a server, you will have access to free 
+               text chat to use amongst your friends.</p>
            <form action="" onSubmit={this.handleSubmit}>
-               <label htmlFor="" id='name'>Server Name</label>
+               <label className='blue' htmlFor="" id='name'>Server Name</label>
                <input type="text" placeholder='Enter a Server Name' value={this.state.name} onChange={this.update('name')} />
-               <button className='blue'>Create</button>
+               <button className='blue create-button'>Create</button>
            </form>
-           <button onClick={this.props.openModal}>BACK</button>
+           </div>
+           <div>
+               <button className='black' onClick={this.props.openModal}>BACK</button>
+           </div>
        </div>)
     }
 }

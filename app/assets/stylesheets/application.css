@@ -46,6 +46,21 @@ button {
     color: #8e9297;
 }
 
+.black{
+    color: black;
+}
+.green{
+    color: #43b581;
+}
+button.green{
+    color: white;
+    background-color: #43b581;
+}
+
+button.green:hover{
+    background-color: #2b7554;
+}
+
 button.blue{
     color: white;
     background-color: #7289da;
@@ -53,6 +68,17 @@ button.blue{
 button.blue:hover{
     background-color: #5a71c5;
 }
+
+button.black{
+    color:black;
+    background-color: rgba(0,0,0,0);
+    border: 0px;
+}
+button.black:hover{
+    color:black;
+    border: 1px solid black;
+}
+
 
 button.grey{
     color: #8e9297;

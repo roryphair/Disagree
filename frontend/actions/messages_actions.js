@@ -2,6 +2,7 @@ import * as api_util from '../util/message_api_util';
 
 export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
+export const RECEIVE_FIRST_MESSAGE = 'RECEIVE_FIRST_MESSAGE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const receiveErrors = (errors) => ({
@@ -18,6 +19,13 @@ export const receiveMessage = ({message, channelId}) => ({
     type: RECEIVE_MESSAGE,
     message,
     channelId
+});
+
+export const receiveFirstMessage = ({message, channelId, user}) => ({
+    type: RECEIVE_FIRST_MESSAGE,
+    message,
+    channelId,
+    user
 });
 
 export const getChannelMessages = (channelId, receiverId) => dispatch =>(
@@ -44,7 +52,7 @@ export const createDirectMessage = (directMessage,receiverId) => dispatch =>(
 
 export const createFirstDirectMessage = (directMessage) => dispatch =>(
     api_util.createFirstDirectMessage(directMessage).then(
-        (directMessage) => dispatch(receiveMessage(directMessage)), 
+        (directMessage) => dispatch(receiveFirstMessage(directMessage)), 
         (error) => dispatch(receiveErrors(error))
         )
 );

@@ -92,8 +92,8 @@ class Home extends React.Component{
             </div>
             <div className='channels-list'>
                 <Switch>
-                    <Route path='/channels/@me/:channelId' component={DMIndex}/>
-                    <Route path='/channels/@me/' component={DMIndex}/>
+                    <Route path='/channels/@me/:channelId' component={DMIndex} />
+                    <Route path='/channels/@me/' component={DMIndex} />
                     <Route path='/channels/:serverId/:channelId' component={ChannelsIndex}/>
                     <Route path='/channels/:serverId' component={ChannelsIndex}/>
                 </Switch>

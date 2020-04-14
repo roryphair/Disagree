@@ -5,8 +5,6 @@ import {getChannelMessages, receiveMessage, getDirectMessages} from '../../actio
 import Home from './home';
 import {withRouter} from 'react-router-dom';
 
-
-
 let sub;
 function subscribeToChannelMessages (channelId, dispatch){
     if(sub) sub = sub.unsubscribe();
@@ -20,12 +18,12 @@ function subscribeToChannelMessages (channelId, dispatch){
 
 const msp = (state, ownProps) => {
     const channelLogic = (id1,id2) => {
-    if(id1 < id2){
-        return `dm${id1}-${id2}`;
-    } else{
-        return `dm${id2}-${id1}`;
+        if(id1 < id2){
+            return `dm${id1}-${id2}`;
+        } else{
+            return `dm${id2}-${id1}`;
+        }
     }
-}
     let channelId = ownProps.match.params.channelId ? ownProps.match.params.channelId : 0;
     if (ownProps.match.params.serverId === '@me'){
         channelId = channelLogic(ownProps.match.params.channelId, state.entities.users[state.session.id].id );

@@ -18,3 +18,95 @@
     background-color: white;
     border-radius: 10px;
   }
+
+  .choose-create-join-server{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .choose-create-join-server > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .choose-create-join-server {
+    margin: 20px;
+  }
+  .choose-create-join-server h3{
+    font: caption;
+  }
+  .choose-create-join-server-option{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    width: 220px;
+    height: 230px;
+    border: rgb(197, 197, 197) 1px solid;
+    padding: 10px;
+    border-radius: 25px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  .choose-create-join-server-option:hover{
+    border: rgba(197, 197, 197, 0.7) 3px inset;
+  }
+  .choose-create-join-server-option img{
+    width: 200px;
+    height: 80px;
+    margin: 10px;
+  }
+
+  .create-server{
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+  }
+
+  .create-server form{
+    margin-top: 50px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .create-server label{
+    
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .create-server input{
+    padding: 10px;
+    margin: 20px;
+    width:  80%;
+    border: 0px;
+    border-bottom: 1px grey solid;
+  }
+
+  .create-server > div:first-child{
+    padding: 20px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .create-server > div:last-child{
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    height: 20%;
+    background-color: rgb(219, 219, 219);
+    overflow: hidden;
+  }
+  .create-button{
+    position: absolute;
+    right: 20px;
+    bottom: -20px;
+  }

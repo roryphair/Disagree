@@ -31,11 +31,11 @@ class Api::DirectMessagesController < ApplicationController
     end
 
     def create_first
-        user = User.find_by(username: params[:message][:username])
-        if user
+        @user = User.find_by(username: params[:message][:username])
+        if @user
             @direct_message = DirectMessage.new(direct_message_params);
             @direct_message.author_id = current_user.id
-            @direct_message.receiver_id = user.id
+            @direct_message.receiver_id = @user.id
             if @direct_message.save
                 @channel_id = channelLogic(@direct_message.author_id, @direct_message.receiver_id)
                 render :show
@@ -45,7 +45,6 @@ class Api::DirectMessagesController < ApplicationController
         else
             render json: ['That user does not exist'], status: 404
         end
-      
     end
 
 

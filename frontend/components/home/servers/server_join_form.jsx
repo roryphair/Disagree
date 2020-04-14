@@ -21,15 +21,19 @@ class ServerJoinForm extends React.Component{
     }
 
     render(){
-        return (<div className='server-join'>
-            <h5>Join a sever</h5>
-            <p>Enter a server name to join a server.</p>
-            <form action="" onSubmit={this.handleSubmit}>
-                <input type="text" id='name' value={this.state.name} onChange={this.update('name')} />
-                <label htmlFor="" id='name'>Enter a name</label>
-                <button>Join</button>
-            </form>
-           <button onClick={this.props.openModal}>BACK</button>
+        return (<div className='create-server'>
+            <div>
+                <h1 className='green'>Join a server</h1>
+                <p>Enter a server name to join a server.</p>
+                <form action="" onSubmit={this.handleSubmit}>
+                    <label className='green' id='name'>Enter a name</label>
+                    <input type="text" placeholder='Enter a Server Name' id='name' value={this.state.name} onChange={this.update('name')} />
+                    <button className='green create-button'>Join</button>
+                </form>
+            </div>
+            <div>
+                <button className='black'  onClick={this.props.openModal}>BACK</button>
+            </div>
         </div>)
     }
 }

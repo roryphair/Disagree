@@ -10,6 +10,7 @@ class Api::ServersController < ApplicationController
         if @server.save
             ServerUser.create!(user_id: @server.admin_id, server_id: @server.id, role: 'admin')
             Channel.create!(server_id: @server.id, name: 'General')
+            @current_user_id = current_user.id
             render :show
         else
             render json: @server.errors.full_messages, status: 404

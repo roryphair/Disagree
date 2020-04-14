@@ -4,3 +4,8 @@ json.message do
     json.updated_at @direct_message.updated_at.strftime("%m/%d/%Y %I:%M%p")
 end
 json.channelId @channel_id
+if @user 
+    json.user do 
+        json.extract! @user, :id, :username, :image_url
+    end
+end
