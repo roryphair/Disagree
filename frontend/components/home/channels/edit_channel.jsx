@@ -3,7 +3,7 @@ import React from 'react';
 class EditChannel extends React.Component{
     constructor(props){
         super(props);
-        this.state = {name: ``};
+        this.state = {name: props.channel.name};
         this.handleSubmit = this.handleSubmit.bind(this);
         this.deleteChannel = this.deleteChannel.bind(this);
     }
@@ -45,7 +45,7 @@ class EditChannel extends React.Component{
                 </div>
             <div>
            <button className='black' onClick={this.props.closeModal}>Cancel</button>
-           <button className='black' onClick={this.deleteChannel}>Delete Channel</button>
+           <button className='red delete-button' onClick={this.deleteChannel}>Delete Channel</button>
             </div>
         </div>)
 

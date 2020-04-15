@@ -17,7 +17,7 @@ class DMIndex extends React.Component{
                 {users.map( (user) => {
                 return (
                    <Link  key={user.username} to={`/channels/@me/${user.id}`}> 
-                   <li key={`li${user.username}`} className={'channel-item ' + (this.props.match.params.channelId == user.id ? 'selected' : 'grey')}># {user.username}</li>
+                   <li key={`li${user.username}`} className={'channel-item ' + (this.props.match.params.channelId == user.id ? 'selected' : 'grey')}> <img className='icon user-icon' src={window.user_icon} alt=""/> {user.username}</li>
                    </Link>
                 ) })}
             </ul>

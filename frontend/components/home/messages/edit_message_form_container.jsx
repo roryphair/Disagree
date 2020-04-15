@@ -5,6 +5,7 @@ import {withRouter} from 'react-router-dom';
 import {closeModal} from '../../../actions/modal_actions';
 
 const msp = (state, ownProps) => ({
+    message: state.entities.messages[ownProps.match.params.messageId],
     messageId: ownProps.match.params.messageId,
     errors: state.errors,
 })

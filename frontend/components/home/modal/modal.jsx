@@ -18,6 +18,9 @@ class Modal extends React.Component{
     componentDidMount(){
       this.props.resetErrors();
     }
+    componentDidUpdate(){
+      this.props.resetErrors();
+    }
     render(){
         if (!this.props.modal) {
             return null;
@@ -25,22 +28,18 @@ class Modal extends React.Component{
         let displayComp;
         switch(this.props.modal){
             case 'serverChoice':
-                this.props.resetErrors();
                 displayComp = <ChooseServer openModal={this.props.openModal} />;
                 break;
             case 'serverCreateForm':
                 displayComp = <CreateServerContainer />;
                 break;
             case 'channelCreateForm':
-                this.props.resetErrors();
                 displayComp = <CreateChannelContainer />;
                 break;
             case 'channelEditForm':
-              this.props.resetErrors();
               displayComp = <EditChannelContainer />;
               break;
             case 'channelMessageEdit':
-              this.props.resetErrors();
               displayComp = <EditMessageContainer />;
               break;
             case 'serverJoinForm':

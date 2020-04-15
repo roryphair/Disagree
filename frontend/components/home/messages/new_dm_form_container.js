@@ -5,6 +5,7 @@ import CreateDMForm from './new_dm_form';
 import {withRouter} from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
+    errors: state.errors,
 })
 const mdp = (dispatch) => ({
     createFirstDirectMessage: (message) => dispatch(createFirstDirectMessage(message)),

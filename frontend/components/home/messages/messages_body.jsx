@@ -9,10 +9,12 @@ class MessagesBody extends React.Component{
         this.openForm = this.openForm.bind(this);
     }
 
-    openForm(id){ 
+    openForm(id, userId){ 
         return () => {
-            this.props.openModal();
-            this.props.history.push(`/channels/${this.props.match.params.serverId}/${this.props.match.params.channelId}/${id}`);
+            if(this.props.currentUserId === userId){
+                this.props.openModal();
+                this.props.history.push(`/channels/${this.props.match.params.serverId}/${this.props.match.params.channelId}/${id}`);
+            }
         }
     }
 
@@ -46,7 +48,7 @@ class MessagesBody extends React.Component{
                     <div className='grey'>{`:  ${message.updated_at}`}</div> 
                 </li>
             </div>
-            <div onClick={this.openForm(message.id)} className='chat-message-main'> 
+            <div onClick={this.openForm(message.id, message.user_id)} className='chat-message-main'> 
                 <div className='chat-message-image' > 
                 </div> 
                 <li >
@@ -59,7 +61,7 @@ class MessagesBody extends React.Component{
 
     createSmallMessage(message){
         return ( 
-            <div onClick={this.openForm(message.id)} key={message.id} className='chat-message-main'> 
+            <div onClick={this.openForm(message.id, message.user_id)} key={message.id} className='chat-message-main'> 
                 <div className='chat-message-image'> 
                 </div> 
                 <li >
@@ -72,13 +74,23 @@ class MessagesBody extends React.Component{
     render(){
         let messages;
         if(!this.props.match.params.channelId){
-            messages = (<li className='white'>Join a channel to see messages</li>);
+            messages = (
+            <div className='chat-message-main'>
+            <li className='white'> <h1>Join a channel or message a User, it's fun!</h1> </li>
+            </div>);
         }
         else if(!this.props.messages || !this.props.receiver ) {
             messages = (<li className='white'></li>);
         }
         else if(this.props.messages.length === 0){
-            messages = <li className='white' >Nothing here yet, you should write something</li>
+            messages = (<>
+                <div className='chat-message-main'>
+                <li className='white'> <h1>No one has written anything yet!</h1> </li>
+                </div>
+                <div className='chat-message-main'>
+                <li className='white'> <h1>Come on, be the first one!</h1> </li>
+                </div>
+                </>);
         }
         else{
             messages = this.listLogic(this.props.messages);

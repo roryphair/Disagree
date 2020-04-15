@@ -108,8 +108,14 @@
   }
   .create-button{
     position: absolute;
-    right: 20px;
-    bottom: -5px;
+    right: 10px;
+    bottom: -7px;
+  }
+
+  .delete-button{
+    position: absolute;
+    right: 180px;
+    bottom: -7px;
   }
 
   .errors-ul{
@@ -122,6 +128,9 @@
     padding: 5px 0px;
   }
 
+  .modal-background button{
+    width: 150px;
+  }
   .create-channel-base{
     display: flex;
     justify-content: space-around;

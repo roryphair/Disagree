@@ -33,7 +33,12 @@ class Home extends React.Component{
     componentDidUpdate(prevProps){
         
         if(this.props.match.params.serverId === '@me'){
-
+            if(!this.props.match.params.channelId ){
+                const users = Object.keys(this.props.user.users_dmed);
+                if(users){
+                    this.props.history.push(`/channels/@me/${users[0]}`);
+                }
+            }
             if(this.props.match.params.channelId && (prevProps.match.params.channelId !== this.props.match.params.channelId)) {
                 this.props.getDirectMessages(this.props.match.params.channelId);
                 this.props.subscribeToChannelMessages(this.props.channelId);
@@ -41,6 +46,10 @@ class Home extends React.Component{
             }
         }  
         else{
+            if(this.props.server && this.props.server.channels && !this.props.match.params.channelId ){
+                this.props.history.push(`/channels/${this.props.match.params.serverId}/${this.props.server.channels[0]}`);
+                
+            }
             if(prevProps.match.params.serverId !== this.props.match.params.serverId && this.props.server){ 
                 this.props.getServer(this.props.match.params.serverId);
                 this.props.closeModal();
@@ -111,7 +120,7 @@ class Home extends React.Component{
             <div className='messages-header'> 
                 <h2 className='grey'>{messagePrefix}</h2> 
                 <h3 className='white'>{messagesHeader}</h3> 
-                <button className='grey edit-channel' onClick={this.props.openModal}>EDIT CHANNEL</button>
+                {this.props.match.params.serverId !== '@me' && this.props.match.params.channelId? (<button className='grey edit-channel' onClick={this.props.openModal}>EDIT CHANNEL</button>): null}
             </div>
             <div className='messages-main'>  
                 <div className='messages-middle'>

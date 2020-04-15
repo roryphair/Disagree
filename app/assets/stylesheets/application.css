@@ -62,6 +62,14 @@ button.green:hover{
     background-color: #2b7554;
 }
 
+button.red{
+    color: white;
+    background-color: rgb(83, 1, 1);
+}
+button.red:hover{
+    background-color: rgb(44, 0, 0);
+}
+
 button.blue{
     color: white;
     background-color: #7289da;

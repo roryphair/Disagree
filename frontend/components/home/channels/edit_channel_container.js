@@ -6,7 +6,8 @@ import {closeModal} from '../../../actions/modal_actions';
 
 const msp = (state, ownProps) => ({
     errors: state.errors,
-    channelId: ownProps.match.params.channelId
+    channelId: ownProps.match.params.channelId,
+    channel: state.entities.channels[ownProps.match.params.channelId],
 })
 const mdp = (dispatch) => ({
     closeModal: () => dispatch(closeModal()),

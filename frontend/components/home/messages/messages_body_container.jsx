@@ -9,11 +9,13 @@ const msp = (state, ownProps) => {
     const serverId = ownProps.match.params.serverId;
     if(serverId !== '@me'){
         return {
+            currentUserId: state.session.id,
             users: state.entities.users,
             receiver: state.entities.servers[serverId],
         };
     } else {
         return {
+            currentUserId: state.session.id,
             receiver: state.entities.users[channelId],
             users: state.entities.users,
         };

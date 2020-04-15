@@ -38,7 +38,7 @@ class ChannelsIndex extends React.Component{
         return(
             <>
             <div className='text-channels'><h2 className='grey'>TEXT CHANNELS</h2> <h2 className='grey' onClick={this.props.openModal} >+</h2></div>
-            
+            <div className='channels-total'>
             <ul className='channels-names-list'>
                 {this.props.channels.map( (channel) => (
                    <Link  key={channel.name} to={`/channels/${this.props.match.params.serverId}/${channel.id}`}> 
@@ -47,7 +47,7 @@ class ChannelsIndex extends React.Component{
                 ) )}
             </ul>
             <div className='leave-button'>{leaveButton}</div>
-            
+            </div>
             </>
        )
     }
