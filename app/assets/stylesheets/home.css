@@ -14,17 +14,19 @@
     border-radius: 40%;
     border: 1px solid black;
 }
+
+
+ .channels-list, .messages-body, .chat-users{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .servers-index{
     display: flex;
     background-color: rgb(32,34,37);
     min-width: 85px;
     height: 100%;
     flex-direction: column;
-}
-
-.servers-index, .channels-list, .messages-body, .chat-users{
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow-x: unset;
 }
 .servers-index::-webkit-scrollbar, 
 .channels-list::-webkit-scrollbar, 
