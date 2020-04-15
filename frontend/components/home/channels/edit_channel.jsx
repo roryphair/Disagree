@@ -1,17 +1,26 @@
 import React from 'react';
 
-class CreateChannel extends React.Component{
+class EditChannel extends React.Component{
     constructor(props){
         super(props);
         this.state = {name: ``};
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.deleteChannel = this.deleteChannel.bind(this);
     }
     handleSubmit(e){
         e.preventDefault();
-        const history = this.props.history;
-        const serverId = this.props.serverId
-        this.props.createChannel(this.state, serverId )
-        .then((e)=> history.push(`/channels/${serverId}/${e.channel.id}`));
+        const closeModal = this.props.closeModal;
+        this.props.updateChannel(this.state, this.props.channelId )
+        .then((e)=> closeModal());
+    }
+
+
+    deleteChannel(e){
+        const history = this.props.history
+        const serverId = this.props.match.params.serverId;
+        this.props.deleteChannel(this.props.channelId)
+        .then((e)=> history.push(`/channels/${serverId}`));
+    
     }
 
     update(type){
@@ -26,19 +35,20 @@ class CreateChannel extends React.Component{
         }
         return (<div className='create-server'>
                 <div className='create-channel-base'>
-                    <h1 className='blue'>Create Text Channel</h1>
+                    <h1 className='blue'>Edit Text Channel</h1>
                 <form className='create-channel-form' action="" onSubmit={this.handleSubmit}>
                     <label className='blue' htmlFor="" id='name'>Channel Name</label>
                     <input type="text" placeholder='Enter Channel Name' value={this.state.name} onChange={this.update('name')} />
-                    <button className='blue create-button'>Create Channel</button>
+                    <button className='blue create-button'>Edit Channel</button>
                 </form>
                 {errors}
                 </div>
             <div>
            <button className='black' onClick={this.props.closeModal}>Cancel</button>
+           <button className='black' onClick={this.deleteChannel}>Delete Channel</button>
             </div>
         </div>)
 
     }
 }
-export default CreateChannel;
+export default EditChannel;

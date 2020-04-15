@@ -121,3 +121,8 @@
     margin: 0px;
     padding: 5px 0px;
   }
+
+  .create-channel-base{
+    display: flex;
+    justify-content: space-around;
+  }

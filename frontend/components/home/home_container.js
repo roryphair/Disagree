@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {logout, getUser } from '../../actions/session_actions';
 import {getServer } from '../../actions/server_actions';
-import {closeModal} from '../../actions/modal_actions';
+import {closeModal, openModal} from '../../actions/modal_actions';
 import {getChannelMessages, receiveMessage, getDirectMessages} from '../../actions/messages_actions'
 import Home from './home';
 import {withRouter} from 'react-router-dom';
@@ -9,11 +9,9 @@ import {withRouter} from 'react-router-dom';
 let sub;
 function subscribeToChannelMessages (channelId, dispatch){
     if(sub) sub = sub.unsubscribe();
-    sub = App.cable.subscriptions.create(
+    sub = App.cable.subscriptions.create( 
         {channel: 'ChannelMessagesChannel', channelId: channelId},
-        {
-            received: message => dispatch(receiveMessage(message))
-        }
+        {received: message => dispatch(receiveMessage(message))}
     );
 }
 
@@ -52,6 +50,7 @@ const mdp = (dispatch) => ({
     subscribeToChannelMessages: (channelId) => subscribeToChannelMessages(channelId, dispatch),
     getDirectMessages: (channelId) => dispatch(getDirectMessages(channelId)),
     closeModal: () => dispatch(closeModal()),
+    openModal: () => dispatch(openModal('channelEditForm')),
 });
 
 export default withRouter(connect(msp,mdp)(Home));

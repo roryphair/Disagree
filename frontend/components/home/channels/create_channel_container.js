@@ -5,11 +5,11 @@ import CreateChannel from './create_channel.jsx';
 import {withRouter} from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
+    errors: state.errors,
     serverId: ownProps.match.params.serverId
 })
 const mdp = (dispatch) => ({
     createChannel: (channel, serverId) => dispatch(createChannel(channel, serverId)),
-    closeModal: () => dispatch(closeModal()),
 })
 
 

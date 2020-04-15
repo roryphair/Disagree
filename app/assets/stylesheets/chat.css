@@ -19,7 +19,7 @@
 .chat-text {
     padding: 10px 0px;
 }
-.chat-message-main{
+.chat-message-main, .chat-message-main-start{
     width: 100%;
     margin: 0px;
     display: flex;
@@ -27,6 +27,12 @@
     width: 100%;
     padding: 0px 16px;
     box-sizing: border-box;
+}
+
+
+.chat-message-main:hover{
+   background-color: rgba(24, 24, 24, 0.39);
+   border-radius: 10px;
 }
 .chat-message-image{
     width: 40px;
@@ -38,6 +44,7 @@
     padding: 10px 0px;;
 }
 .messages-body li{
+    line-height: 1.5;
     display: flex;
     width: 100%;
 }

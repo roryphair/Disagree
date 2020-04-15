@@ -28,7 +28,7 @@ class MessagesBody extends React.Component{
         return (
             <div key={message.id}>
            
-            <div  className='chat-message-main start'> 
+            <div  className='chat-message-main-start'> 
                 <div className='chat-message-image' > 
                     <img className='icon user-icon' src={window.user_icon} alt=""/>
                 </div> 

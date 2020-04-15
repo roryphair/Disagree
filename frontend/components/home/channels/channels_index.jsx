@@ -42,7 +42,7 @@ class ChannelsIndex extends React.Component{
             <ul className='channels-names-list'>
                 {this.props.channels.map( (channel) => (
                    <Link  key={channel.name} to={`/channels/${this.props.match.params.serverId}/${channel.id}`}> 
-                   <li key={`li${channel.name}`} className={'channel-item ' + (this.props.match.params.channelId == channel.id ? 'selected' : 'grey')}># {channel.name}</li>
+                   <li key={`li${channel.name}`} className={'channel-item ' + (this.props.match.params.channelId == channel.id ? 'selected' : 'grey')}>{`# ${channel.name}`}</li>
                    </Link>
                 ) )}
             </ul>

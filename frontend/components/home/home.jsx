@@ -110,6 +110,7 @@ class Home extends React.Component{
             <div className='messages-header'> 
                 <h2 className='grey'>{messagePrefix}</h2> 
                 <h3 className='white'>{messagesHeader}</h3> 
+                <button className='grey edit-channel' onClick={this.props.openModal}>EDIT CHANNEL</button>
             </div>
             <div className='messages-main'>  
                 <div className='messages-middle'>
@@ -119,7 +120,6 @@ class Home extends React.Component{
                 {chatUsers}
             </div>
         </div>
-            
         </>
         );
     }
