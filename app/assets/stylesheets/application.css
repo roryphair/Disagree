@@ -14,20 +14,21 @@
  *= require_self
  */
 .app-main{
+    overflow: auto;
     position: absolute;
     display: flex;
-    width: 100%;
     background-color: #25252b;
-    height: 100%;
-     top: 0; 
-     left: 0; 
-     height: 100%; 
-     width: 100%;
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    width: 100%;
+}
+.groban *{
+    background-image: url('groban.jpg') ;
 }
 a{
     color:rgb(114,137,218);
     text-decoration: none;
-    
 }
 button {
     cursor: pointer;

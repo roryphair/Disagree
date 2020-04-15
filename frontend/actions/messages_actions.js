@@ -4,6 +4,7 @@ export const RECEIVE_MESSAGES = 'RECEIVE_MESSAGES';
 export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_FIRST_MESSAGE = 'RECEIVE_FIRST_MESSAGE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const REMOVE_MESSAGE = 'REMOVE_MESSAGE'
 
 export const receiveErrors = (errors) => ({
     type: RECEIVE_ERRORS,
@@ -20,6 +21,12 @@ export const receiveMessage = ({message, channelId}) => ({
     message,
     channelId
 });
+
+export const removeMessage = ({message}) => ({
+    type: REMOVE_MESSAGE,
+    message
+});
+
 
 export const receiveFirstMessage = ({message, channelId, user}) => ({
     type: RECEIVE_FIRST_MESSAGE,
@@ -64,16 +71,34 @@ export const getDirectMessages = (author_id, receiver_id) => dispatch =>(
         )
 );
 
-export const removeDirectMessage = (channelId) => dispatch =>(
-    api_util.removeDirectMessage(channelId).then( 
-        (channel) => dispatch(receiveChannel(channel)), 
+export const removeDirectMessage = (messageId) => dispatch =>(
+    api_util.removeDirectMessage(messageId).then( 
+        () => {},
+        // (message) => dispatch(removeMessage(message)), 
         (error) => dispatch(receiveErrors(error))
         )
 );
 
-export const removeChannelMessage = (channelId) => dispatch =>(
-    api_util.removeChannelMessage(channelId).then( 
-        (channel) => dispatch(receiveChannel(channel)), 
+export const removeChannelMessage = (messageId) => dispatch =>(
+    api_util.removeChannelMessage(messageId).then( 
+        () => {},
+        // (message) => dispatch(removeMessage(message)), 
+        (error) => dispatch(receiveErrors(error))
+        )
+);
+
+export const updateDirectMessage = (message, messageId) => dispatch =>(
+    api_util.updateDirectMessage(message,messageId).then(
+        () =>{},
+        // (message) => dispatch(receiveMessage(message)), 
+        (error) => dispatch(receiveErrors(error))
+        )
+);
+
+export const updateChannelMessage = (message, messageId) => dispatch =>(
+    api_util.updateChannelMessage(message,messageId).then(
+        () =>{},
+        // (message) => dispatch(receiveMessage(message)), 
         (error) => dispatch(receiveErrors(error))
         )
 );

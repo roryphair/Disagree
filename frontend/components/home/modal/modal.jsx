@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CreateServerContainer from '../servers/create_server_form_container';
 import CreateChannelContainer from '../channels/create_channel_container';
 import EditChannelContainer from '../channels/edit_channel_container';
+import EditMessageContainer from '../messages/edit_message_form_container';
 import CreateDMForm from '../messages/new_dm_form_container';
 import ChooseServer from '../servers/choose_server';;
 import JoinServer from '../servers/server_join_form_container';
@@ -34,10 +35,14 @@ class Modal extends React.Component{
                 this.props.resetErrors();
                 displayComp = <CreateChannelContainer />;
                 break;
-                case 'channelEditForm':
-                  this.props.resetErrors();
-                  displayComp = <EditChannelContainer />;
-                  break;
+            case 'channelEditForm':
+              this.props.resetErrors();
+              displayComp = <EditChannelContainer />;
+              break;
+            case 'channelMessageEdit':
+              this.props.resetErrors();
+              displayComp = <EditMessageContainer />;
+              break;
             case 'serverJoinForm':
                 displayComp = <JoinServer />
                 break

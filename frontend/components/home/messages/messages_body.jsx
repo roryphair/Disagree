@@ -6,6 +6,14 @@ class MessagesBody extends React.Component{
         this.listLogic = this.listLogic.bind(this);
         this.createFullMessage = this.createFullMessage.bind(this);
         this.createSmallMessage = this.createSmallMessage.bind(this);
+        this.openForm = this.openForm.bind(this);
+    }
+
+    openForm(id){ 
+        return () => {
+            this.props.openModal();
+            this.props.history.push(`/channels/${this.props.match.params.serverId}/${this.props.match.params.channelId}/${id}`);
+        }
     }
 
     listLogic(messages){
@@ -38,7 +46,7 @@ class MessagesBody extends React.Component{
                     <div className='grey'>{`:  ${message.updated_at}`}</div> 
                 </li>
             </div>
-            <div className='chat-message-main'> 
+            <div onClick={this.openForm(message.id)} className='chat-message-main'> 
                 <div className='chat-message-image' > 
                 </div> 
                 <li >
@@ -51,7 +59,7 @@ class MessagesBody extends React.Component{
 
     createSmallMessage(message){
         return ( 
-            <div  key={message.id} className='chat-message-main'> 
+            <div onClick={this.openForm(message.id)} key={message.id} className='chat-message-main'> 
                 <div className='chat-message-image'> 
                 </div> 
                 <li >
@@ -76,9 +84,11 @@ class MessagesBody extends React.Component{
             messages = this.listLogic(this.props.messages);
         }
         return (
+            <>
              <ul>
                  {messages}
              </ul>
+             </>
         );
     }
 }

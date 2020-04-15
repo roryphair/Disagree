@@ -37,6 +37,22 @@ export const createFirstDirectMessage = (message) => (
     })
 )
 
+export const updateChannelMessage = (message, messageId) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/channel_messages/${messageId}`,
+        data: {message}
+    })
+)
+
+export const updateDirectMessage = (message, messageId) => (
+    $.ajax({
+        method: 'PATCH',
+        url: `/api/direct_messages/${messageId}`,
+        data: {message}
+    })
+)
+
 
 export const removeChannelMessage = (messagesId) => (
     $.ajax({

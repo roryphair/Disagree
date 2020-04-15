@@ -11,10 +11,13 @@ const App = () => (
     <Switch>
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      
+      <ProtectedRoute path='/channels/:serverId/:channelId/:messageId' component={Home} />
       <ProtectedRoute path='/channels/:serverId/:channelId' component={Home} />
       <ProtectedRoute path='/channels/:serverId' component={Home} />
       <AuthRoute path='/' component={Welcome}/>
     </Switch>
+    <audio id='josher' preload='none' src={window.josh} loop></audio>
   </div>
   
 );

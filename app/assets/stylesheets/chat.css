@@ -39,9 +39,13 @@
     height: 25px;
 }
 .messages-body ul{
+    box-sizing: border-box;
     width: 100%;
     margin: 0px;
-    padding: 10px 0px;;
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 .messages-body li{
     line-height: 1.5;
@@ -56,5 +60,14 @@
     font-weight: bold;
     font-style: italic;
     font-size: 18px;
-
+}
+.message-edit-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 540px;
+    height: 350px;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 10px;
 }

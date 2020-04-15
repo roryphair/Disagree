@@ -82,6 +82,7 @@ class Home extends React.Component{
         }
         return (
             <>
+                    
         <Modal />
         <div className='servers-index'> 
             <ServersIndex />

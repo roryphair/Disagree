@@ -54,12 +54,54 @@ class Api::DirectMessagesController < ApplicationController
         render :index
     end
 
+    def update
+        @direct_message = DirectMessage.find(params[:id]);
+        if @direct_message.author_id == current_user.id
+            if @direct_message.update(direct_message_params)
+                @channel_id = channelLogic(@direct_message.author_id, @direct_message.receiver_id)
+                new_message = {
+                    message: {
+                        id: @direct_message.id,
+                        user_id: @direct_message.author_id,
+                        body: @direct_message.body,
+                        created_at: @direct_message.created_at,
+                        updated_at:  @direct_message.updated_at.strftime("%m/%d/%Y %I:%M%p"),
+                    },
+                    channelId: @channel_id,
+                }
+                ChannelMessagesChannel.speak(@channel_id , new_message.as_json)
+                render :show
+            else
+                render json: @direct_message.errors.full_messages, status: 404
+            end
+        else
+            render json: ["You cannot edit other user's messages"], status: 403
+        end
+    end
+
     def destroy
         @direct_message = DirectMessage.find(params[:id]);
-        if @direct_message.destroy
-            render :show
+        if current_user.id == @direct_message.author_id
+            if @direct_message.destroy
+                @channel_id = channelLogic(@direct_message.author_id, @direct_message.receiver_id)
+                new_message = {
+                    message: {
+                        id: @direct_message.id,
+                        user_id: @direct_message.author_id,
+                        body: @direct_message.body,
+                        created_at: @direct_message.created_at,
+                        updated_at:  @direct_message.updated_at.strftime("%m/%d/%Y %I:%M%p"),
+                    },
+                    channelId: @channel_id,
+                    action: 'delete'
+                }
+                ChannelMessagesChannel.speak(@channel_id, new_message.as_json)
+                render :show
+            else
+                render json: @direct_message.errors.full_messages, status: 404
+            end
         else
-            render json: @direct_message.errors.full_messages, status: 404
+            render json: ["You can't delete other user's messages"], status: 403
         end
     end
 

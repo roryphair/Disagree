@@ -168,6 +168,7 @@ img.potion{
     margin-left: -609px;
     bottom: 10px;
     z-index: 1;
+    cursor: pointer;
 }
 img.smartphone{
     margin-left: -548px;

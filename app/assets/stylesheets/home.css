@@ -21,6 +21,27 @@
     height: 100%;
     flex-direction: column;
 }
+
+.servers-index, .channels-list, .messages-body, .chat-users{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.servers-index::-webkit-scrollbar, 
+.channels-list::-webkit-scrollbar, 
+.messages-body::-webkit-scrollbar, 
+.chat-users::-webkit-scrollbar
+{
+    border-radius: 10px;
+    width: 10px;
+    background-color: rgb(27, 27, 27);
+}
+.servers-index::-webkit-scrollbar-thumb, 
+.channels-list::-webkit-scrollbar-thumb, 
+.messages-body::-webkit-scrollbar-thumb, 
+.chat-users::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+}
 .channels-index{
     display: flex;
     overflow: hidden;
@@ -152,9 +173,10 @@
 }
 
 .messages-body{
-    overflow: hidden;
+    margin: 5px;
     display: flex;
     align-items: flex-end;
+    flex-direction: column-reverse;
     height: 100%;
 }
 .messages-bottom{
