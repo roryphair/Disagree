@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
     let jaeed = false;
     const jaeize = (e) =>{
-        console.log(e)
             if(e.key ==='j' && e.altKey){
             document.getElementById('root').classList.toggle('jaed');
             jaeed = !jaeed;

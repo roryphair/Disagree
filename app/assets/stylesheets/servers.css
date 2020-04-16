@@ -19,6 +19,9 @@
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+.server-selected {
+    border: 5px rgb(160, 160, 160) solid;
+}
 .server-title{
     z-index: 1;
     height: 60%;

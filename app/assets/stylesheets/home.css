@@ -10,8 +10,9 @@
     margin: 0px;
     border: 0px
 }
-.icon:hover{
-    border-radius: 40%;
+
+.server-icon:hover{
+    border-radius: 50%;
     border: 5px groove rgba(0, 0, 0, 0.856);
 }
 
@@ -116,8 +117,13 @@
     height: 32px;
     width: 32px;
 }
-.chat-users{
 
+.user-icon:hover{
+    border-radius: 50%;
+    border: 3px solid rgb(175, 175, 175);
+}
+
+.chat-users{
     padding: 20px 20px 20px 10px;
     display: flex;
     flex:right;
@@ -135,7 +141,8 @@
 }
 
 .users-list-user:hover{
-    background-color: rgb(112, 112, 112);
+    color: white;
+    background-color: rgb(2, 2, 2);
     border-radius: 20px;
 }
 .users-list-user > img {

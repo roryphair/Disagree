@@ -7,7 +7,7 @@ const usersReducer = (state = {}, action) =>{
     switch(action.type){
         case RECEIVE_FIRST_MESSAGE:
             state[action.message.user_id].users_dmed[action.user.id] = true
-            return Object.assign({}, state, {[action.user.id]: action.user})
+            return Object.assign({}, {[action.user.id]: action.user}, state)
         case RECEIVE_SERVER:
             const oldUser = state[action.currentUserId];
             if(oldUser) {

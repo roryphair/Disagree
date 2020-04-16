@@ -33,13 +33,17 @@
 .chat-message-main-start{
     padding-top: 10px;
 }
+ .chat-message-main  li{
+    width: 100%;
+    padding: 0px 10px;
+ }
 
-.chat-message-main div:hover{
+.chat-message-main  li:hover{
    background-color: rgba(24, 24, 24, 0.623);
    border-radius: 10px;
 }
 .chat-message-image{
-    width: 50px;
+    width: 40px;
     height: 25px;
 }
 .messages-body ul{
@@ -66,6 +70,7 @@
     font-weight: bold;
     font-style: italic;
     font-size: 18px;
+    padding: 0px 10px;
 }
 .message-edit-form{
     position: absolute;

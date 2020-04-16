@@ -25,7 +25,7 @@ class MessagesWrite extends React.Component{
          return (
             <div className='chat-box-input'>
                 <form action="" onSubmit={this.handleSubmit} >
-                    <input type="text" value={this.state.body} placeholder={`Message ${receiverName}`} onChange={this.update('body')} />       
+                    <input type="textarea" value={this.state.body} placeholder={`Message ${receiverName}`} onChange={this.update('body')} />       
                 </form>
             </div>
         )

@@ -20,7 +20,6 @@ const App = () => (
     <audio id='josher' preload='none' src={window.josh} loop></audio>
     <audio id='nightnight' preload='none' src={window.nightnight} loop></audio>
   </div>
-  
 );
 
 export default App;

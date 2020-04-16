@@ -15,7 +15,7 @@ class ServerIndex extends React.Component{
             <ul>
                 <li className='server-list-item'> 
                    <Link to='/channels/@me'>
-                       <img className='icon server-icon' src={window.user_icon} alt='home'/>
+                       <img className={'icon server-icon ' + (this.props.match.params.serverId == '@me' ? 'server-selected' : '')} src={window.user_icon} alt='home'/>
                     </Link> 
                     <h2 className='server-title'>Home</h2>
                 </li>
@@ -24,7 +24,7 @@ class ServerIndex extends React.Component{
                 {this.props.servers.map( server => (
                     <li className='server-list-item' key={server.name}>
                         <Link to={`/channels/${server.id}`}>
-                            <img className='icon server-icon' src={server.image_url} alt={server.name}/>
+                            <img className={'icon server-icon ' + (this.props.match.params.serverId == server.id ? 'server-selected' : '')} src={server.image_url} alt={server.name}/>
                         </Link>
                         <h2 className='server-title'>{server.name}</h2>
                     </li>

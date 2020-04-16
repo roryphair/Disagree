@@ -45,7 +45,7 @@ class MessagesBody extends React.Component{
                 <li >
                     <div className='chat-username white'> {user ? user.username : 'DELETED'}  </div>
                     
-                    <div className='grey'>{`:  ${message.updated_at}`}</div> 
+                    <div className='grey'>{`${message.updated_at}`}</div> 
                 </li>
             </div>
             <div onClick={this.openForm(message.id, message.user_id)} className='chat-message-main'> 
