@@ -1,4 +1,6 @@
 class Api::ServersController < ApplicationController
+    IMAGES = ['servers/canyon.jpg','servers/road.jpg', 'servers/sky.jpg','servers/tundra.jpg','servers/water.jpg','servers/zen.jpg']
+    
     def index
         @servers = User.find(current_user.id).servers
         render :index
@@ -7,6 +9,7 @@ class Api::ServersController < ApplicationController
     def create
         @server = Server.new(server_params);
         @server.admin_id = current_user.id
+        @server.image_url = IMAGES.sample
         if @server.save
             ServerUser.create!(user_id: @server.admin_id, server_id: @server.id, role: 'admin')
             Channel.create!(server_id: @server.id, name: 'General')

@@ -51,6 +51,7 @@ const mdp = (dispatch) => ({
     getDirectMessages: (channelId) => dispatch(getDirectMessages(channelId)),
     closeModal: () => dispatch(closeModal()),
     openModal: () => dispatch(openModal('channelEditForm')),
+    openModalUserMess: () => dispatch(openModal('dmCreateForm')),
 });
 
 export default withRouter(connect(msp,mdp)(Home));

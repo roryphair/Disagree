@@ -10,6 +10,7 @@ const msp = (state, ownProps) => ({
 })
 const mdp = (dispatch) => ({
     createChannel: (channel, serverId) => dispatch(createChannel(channel, serverId)),
+    closeModal: () => dispatch(closeModal()),
 })
 
 

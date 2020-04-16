@@ -19,6 +19,7 @@
 .chat-text {
     padding: 10px 0px;
 }
+
 .chat-message-main, .chat-message-main-start{
     width: 100%;
     margin: 0px;
@@ -29,13 +30,16 @@
     box-sizing: border-box;
 }
 
+.chat-message-main-start{
+    padding-top: 10px;
+}
 
-.chat-message-main:hover{
-   background-color: rgba(24, 24, 24, 0.39);
+.chat-message-main div:hover{
+   background-color: rgba(24, 24, 24, 0.623);
    border-radius: 10px;
 }
 .chat-message-image{
-    width: 40px;
+    width: 50px;
     height: 25px;
 }
 .messages-body ul{
@@ -48,9 +52,11 @@
     justify-content: flex-end;
 }
 .messages-body li{
-    line-height: 1.5;
+    line-height: 1.7;
+    font-size: 16px;
     display: flex;
     width: 100%;
+    margin-right: 20px;
 }
 .start{
     padding-top: 15px;

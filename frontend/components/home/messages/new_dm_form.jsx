@@ -3,7 +3,7 @@ import React from 'react';
 class CreateChannel extends React.Component{
     constructor(props){
         super(props);
-        this.state = {username: ``, body: ''};
+        this.state = {username: props.match.params.messageId, body: ''};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 

@@ -24,7 +24,14 @@ class ChannelsIndex extends React.Component{
     }
 
     render(){
-        if (this.props.channels.length === 0) return (<div className='text-channels'> loading</div>)
+        let servers = null;
+        if (this.props.channels.length > 0){
+            servers = this.props.channels.map( (channel) => (
+                <Link  key={channel.name} to={`/channels/${this.props.match.params.serverId}/${channel.id}`}> 
+                <li key={`li${channel.name}`} className={'channel-item ' + (this.props.match.params.channelId == channel.id ? 'selected' : 'grey')}>{`# ${channel.name}`}</li>
+                </Link>
+             ) )
+        }
         let leaveButton;
         
         if(this.props.server){
@@ -40,11 +47,7 @@ class ChannelsIndex extends React.Component{
             <div className='text-channels'><h2 className='grey'>TEXT CHANNELS</h2> <h2 className='grey' onClick={this.props.openModal} >+</h2></div>
             <div className='channels-total'>
             <ul className='channels-names-list'>
-                {this.props.channels.map( (channel) => (
-                   <Link  key={channel.name} to={`/channels/${this.props.match.params.serverId}/${channel.id}`}> 
-                   <li key={`li${channel.name}`} className={'channel-item ' + (this.props.match.params.channelId == channel.id ? 'selected' : 'grey')}>{`# ${channel.name}`}</li>
-                   </Link>
-                ) )}
+                {servers}
             </ul>
             <div className='leave-button'>{leaveButton}</div>
             </div>

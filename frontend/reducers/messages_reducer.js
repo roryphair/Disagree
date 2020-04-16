@@ -10,8 +10,7 @@ const MessagesReducer = (state = {}, action) =>{
             return new_messages;
         case RECEIVE_FIRST_MESSAGE:
         case RECEIVE_MESSAGE:
-            return Object.assign({}, state, {[action.message.id]: action.message})
-            
+            return Object.assign({}, state, {[action.message.id]: action.message})   
         case RECEIVE_MESSAGES:
         case RECEIVE_CHANNEL:
             if (!action.messages) return {};

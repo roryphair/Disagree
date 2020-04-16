@@ -38,14 +38,15 @@ class SignupForm extends React.Component{
                     </div></Link>
            </div>
         <div className='session-form'>
-        {this.props.errors.length > 0 ? (
-                <ul>
-                    {this.props.errors.map((error,idx) =>  <li key={idx}> {error}</li>)} 
-                </ul>
-             ) : null}
+        
             <form action="" onSubmit={this.handleSubmit}>
                 
                 <h2>Create an account</h2>
+                {this.props.errors.length > 0 ? (
+                <ul className='session-ul'>
+                    {this.props.errors.map((error,idx) =>  <li className='red' key={idx}> {error}</li>)} 
+                </ul>
+             ) : null}
                 <label htmlFor="" id='email'>  EMAIL</label>
                 <input type="email" onChange={this.update('email')} value={this.state.email}  id='email'/>
                 

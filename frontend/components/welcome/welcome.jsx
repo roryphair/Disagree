@@ -6,8 +6,17 @@ export default (props) => {
     const grobanize = () =>{
         document.getElementById('root').classList.toggle('groban');
         grobaned = !grobaned;
-        grobaned ? document.getElementById('josher').play() : document.getElementById('josher').pause();
+        if (grobaned){
+            document.getElementById('josher').play();
+            document.getElementById('josher').volume = 0.15; 
+        }
+        else{
+            document.getElementById('josher').pause();
+        }
+        grobaned 
     }
+    
+  
 
     return (
         <div className='splash-page'>

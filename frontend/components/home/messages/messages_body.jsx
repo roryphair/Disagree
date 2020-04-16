@@ -40,7 +40,7 @@ class MessagesBody extends React.Component{
            
             <div  className='chat-message-main-start'> 
                 <div className='chat-message-image' > 
-                    <img className='icon user-icon' src={window.user_icon} alt=""/>
+                    <img className='icon user-icon' src={user ? user.image_url : ''} alt=""/>
                 </div> 
                 <li >
                     <div className='chat-username white'> {user ? user.username : 'DELETED'}  </div>
@@ -72,6 +72,13 @@ class MessagesBody extends React.Component{
     }
 
     render(){
+
+        let errors = null;
+        if(this.props.errors.length > 0){
+            errors = (
+                this.props.errors.map (error => ( <div className='chat-message-main'>
+                    <h1 className={'errors-li'} key={error}>{error}</h1></div>)))
+        }
         let messages;
         if(!this.props.match.params.channelId){
             messages = (
@@ -80,7 +87,9 @@ class MessagesBody extends React.Component{
             </div>);
         }
         else if(!this.props.messages || !this.props.receiver ) {
-            messages = (<li className='white'></li>);
+            messages = (<div className='chat-message-main'>
+            <li className='white'> <h1>Something went wrong! Are you on a real page?</h1> </li>
+            </div>);
         }
         else if(this.props.messages.length === 0){
             messages = (<>

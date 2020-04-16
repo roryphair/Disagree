@@ -24,7 +24,10 @@
     width: 100%;
 }
 .groban *{
-    background-image: url('groban.jpg') ;
+    background-image: url('users/groban.jpg') ;
+}
+.jaed *{
+    background-image: url('users/jae.jpg') ;
 }
 a{
     color:rgb(114,137,218);

@@ -12,7 +12,7 @@
 }
 .icon:hover{
     border-radius: 40%;
-    border: 1px solid black;
+    border: 5px groove rgba(0, 0, 0, 0.856);
 }
 
 
@@ -134,6 +134,10 @@
     padding: 10px 10px;
 }
 
+.users-list-user:hover{
+    background-color: rgb(112, 112, 112);
+    border-radius: 20px;
+}
 .users-list-user > img {
     display: flex;
     align-items: center;

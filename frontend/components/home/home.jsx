@@ -46,7 +46,7 @@ class Home extends React.Component{
             }
         }  
         else{
-            if(this.props.server && this.props.server.channels && !this.props.match.params.channelId ){
+            if(this.props.server && this.props.server.channels && this.props.server.channels.length > 0 && !this.props.match.params.channelId ){
                 this.props.history.push(`/channels/${this.props.match.params.serverId}/${this.props.server.channels[0]}`);
                 
             }
@@ -87,7 +87,7 @@ class Home extends React.Component{
                 }
             }
             const chatters = Object.values(newUsers);
-            chatUsers = <ChatUsers users={chatters} usersLength={chatters.length}/>;
+            chatUsers = <ChatUsers users={chatters} usersLength={chatters.length} openModal={this.props.openModalUserMess}/>;
         }
         return (
             <>
@@ -110,7 +110,7 @@ class Home extends React.Component{
             </div>
             <div className='channels-user'>
                 <div>
-                    <img  src={window.user_icon} className='icon user-icon' alt=""/> 
+                    <img  src={this.props.user.image_url} className='icon user-icon' alt=""/> 
                     <h4 className='white'> {this.props.user.username}</h4>
                 </div>
                 <button className='grey' onClick={this.props.logout}>Logout</button>
@@ -120,7 +120,7 @@ class Home extends React.Component{
             <div className='messages-header'> 
                 <h2 className='grey'>{messagePrefix}</h2> 
                 <h3 className='white'>{messagesHeader}</h3> 
-                {this.props.match.params.serverId !== '@me' && this.props.match.params.channelId? (<button className='grey edit-channel' onClick={this.props.openModal}>EDIT CHANNEL</button>): null}
+                {this.props.match.params.serverId !== '@me' && this.props.match.params.channelId && this.props.server && this.props.server.channels && this.props.server.channels.length > 0 ? (<button className='grey edit-channel' onClick={this.props.openModal}>EDIT CHANNEL</button>): null}
             </div>
             <div className='messages-main'>  
                 <div className='messages-middle'>

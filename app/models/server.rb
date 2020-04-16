@@ -16,6 +16,8 @@ class Server < ApplicationRecord
     validates :name, uniqueness: true
     validates :public, inclusion: { in: [true, false] }
 
+
+
     belongs_to :admin,
     foreign_key: :admin_id,
     class_name: :User

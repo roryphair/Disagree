@@ -3,7 +3,7 @@ import React from 'react';
 class CreateServer extends React.Component{
     constructor(props){
         super(props);
-        this.state = {name: `${props.user.username}'s server`, admin_id: props.user.id, public: false, image_url: 'user_icon.png'}
+        this.state = {name: `${props.user.username}'s server`, admin_id: props.user.id, public: false}
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 

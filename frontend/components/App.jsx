@@ -18,6 +18,7 @@ const App = () => (
       <AuthRoute path='/' component={Welcome}/>
     </Switch>
     <audio id='josher' preload='none' src={window.josh} loop></audio>
+    <audio id='nightnight' preload='none' src={window.nightnight} loop></audio>
   </div>
   
 );

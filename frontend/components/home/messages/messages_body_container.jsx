@@ -12,12 +12,14 @@ const msp = (state, ownProps) => {
             currentUserId: state.session.id,
             users: state.entities.users,
             receiver: state.entities.servers[serverId],
+            errors: state.errors,
         };
     } else {
         return {
             currentUserId: state.session.id,
             receiver: state.entities.users[channelId],
             users: state.entities.users,
+            errors: state.errors,
         };
     }
 }
