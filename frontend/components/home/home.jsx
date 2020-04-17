@@ -18,14 +18,14 @@ class Home extends React.Component{
         if(this.props.match.params.serverId === '@me'){
             if(this.props.match.params.channelId){
                 this.props.getDirectMessages(this.props.match.params.channelId);
-                this.props.subscribeToChannelMessages(this.props.channelId);
+                this.props.subscribeToChannelMessages(this.props.match.params.channelId);
             }
         }  
         else{
             this.props.getServer(this.props.match.params.serverId);
             if(this.props.match.params.channelId){
                 this.props.getChannelMessages(this.props.match.params.channelId);
-                this.props.subscribeToChannelMessages(this.props.channelId);
+                this.props.subscribeToChannelMessages(this.props.match.params.channelId);
             }
         }
     }
@@ -41,22 +41,21 @@ class Home extends React.Component{
             }
             if(this.props.match.params.channelId && (prevProps.match.params.channelId !== this.props.match.params.channelId)) {
                 this.props.getDirectMessages(this.props.match.params.channelId);
-                this.props.subscribeToChannelMessages(this.props.channelId);
+                this.props.subscribeToChannelMessages(this.props.match.params.channelId);
                 this.props.closeModal();
             }
         }  
         else{
             if(this.props.server && this.props.server.channels && this.props.server.channels.length > 0 && !this.props.match.params.channelId ){
                 this.props.history.push(`/channels/${this.props.match.params.serverId}/${this.props.server.channels[0]}`);
-                
             }
             if(prevProps.match.params.serverId !== this.props.match.params.serverId && this.props.server){ 
                 this.props.getServer(this.props.match.params.serverId);
                 this.props.closeModal();
             }
-            if((prevProps.match.params.channelId !== this.props.match.params.channelId)) {
-                this.props.getChannelMessages(this.props.channelId);
-                this.props.subscribeToChannelMessages(this.props.channelId);
+            if(this.props.match.params.channelId && (prevProps.match.params.channelId !== this.props.match.params.channelId)) {
+                this.props.getChannelMessages(this.props.match.params.channelId);
+                this.props.subscribeToChannelMessages(this.props.match.params.channelId);
                 this.props.closeModal();
             }
         }
