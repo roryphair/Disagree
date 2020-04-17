@@ -5,6 +5,18 @@
     align-items: center;
     margin: 5px;
 }
+.server-list-item a{
+    display: flex;
+}
+.server-list-item:hover{
+    margin:0px;
+    border: 5px solid black;
+    border-radius: 50%;
+}
+
+.server-list-item:hover .icon{
+    border-radius: 85%;
+}
 .server-list ul {
     display: flex;
     margin: 0;
@@ -12,6 +24,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.server-list-item button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .server-list-item:hover .server-title{
     display: inline-block;

@@ -34,8 +34,15 @@
   .choose-create-join-server {
     margin: 20px;
   }
+  .choose-create-join-server h1{
+    font-size: 22px;
+    margin: 10px 0px;
+    font-weight: bolder;
+  }
+
   .choose-create-join-server h3{
     font: caption;
+    font-size: 14px;
   }
   .choose-create-join-server-option{
     text-align: center;
@@ -46,13 +53,14 @@
     width: 220px;
     height: 230px;
     border: rgb(197, 197, 197) 1px solid;
-    padding: 10px;
+    padding: 5px;
     border-radius: 25px;
     margin: 10px;
     cursor: pointer;
   }
   .choose-create-join-server-option:hover{
-    border: rgba(197, 197, 197, 0.7) 3px inset;
+    border: rgba(197, 197, 197, 0.7) 3px solid;
+    padding: 3px;
   }
   .choose-create-join-server-option img{
     width: 200px;
@@ -73,6 +81,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .create-server h1{
+    font-size: 24px;
   }
 
   .create-server label{

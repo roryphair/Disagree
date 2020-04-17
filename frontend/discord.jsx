@@ -5,7 +5,6 @@ import Root from './components/root'
 import {createServer} from './actions/server_actions';
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    
     let jaeed = false;
     const jaeize = (e) =>{
             if(e.key ==='j' && e.altKey){
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             }
         }
     }
-
 
     document.addEventListener('keydown', jaeize)
 
@@ -37,11 +35,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
     } else {
         store = configureStore();
     }
-    //testing
-    window.store = store;
-    window.createServer = createServer;
-    window.dispatch = store.dispatch;
-    //testing
     const root = document.getElementById('root');
     ReactDOM.render( <Root store={store}/>, root);
 });
