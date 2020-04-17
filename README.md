@@ -6,7 +6,10 @@
 
 Disagree is a clone of the populate live-chat app Discord. In Disagree, you can join a Server and chat with many other users at the same time. You can also direct message individual users. 
 
+
 ![disagreee](https://user-images.githubusercontent.com/59512990/79588274-ac7a2f00-80a1-11ea-9286-be3197dab542.jpg)
+
+
 ***
 
 ## Technologies
@@ -21,6 +24,8 @@ Disagree was built with Ruby on Rails and POSTGRESQL for the backend, and React,
 
 Users can live chat on a channel of a server or through direct messages. This requires users to subscribe to Action Cable channel.
 Because of the limitations and relative importance of each websocket, a user is unsubscribed from a channel everytime they attempt to make a new connect. The Channel handles creating, updating and deleting of messages, so the response from the channel contains an action property that instructs which redux action to dispatch.
+
+
 `
 let sub;
 function subscribeToMessages (channelId, dispatch){
@@ -32,7 +37,9 @@ function subscribeToMessages (channelId, dispatch){
 }
 `
 
+
 The Home component handles subsciptions and a check is made every time the user arrives at a new web address to see if a new subscription should be made. This is used for both channel messages and for direct messages. This allows the system to be modular and work the same for direct messages and for channel messages.
+
 
 `
 componentDidUpdate(prevProps){
@@ -42,7 +49,11 @@ componentDidUpdate(prevProps){
      }
 }  
 `
+
+
 In order to develop unique channelid's for the Action Channel for both DM's and Channel messages, the Home container checks if the server address is the direct message index and then develops a unique id for the channels to accomplish two things, 1) to not accidently override a channel message channel, 2) so two users have the same id despite the messaging system being based on the id of the author.
+
+
 `
 channelId = ownProps.match.params.channelId;
 if (ownProps.match.params.serverId === '@me'){
