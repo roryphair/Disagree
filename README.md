@@ -30,10 +30,10 @@ Because of the limitations and relative importance of each websocket, a user is 
 let sub;
 function subscribeToMessages (channelId, dispatch){
     if(sub) sub = sub.unsubscribe();
-    sub = App.cable.subscriptions.create( 
+    sub = App.cable.subscriptions.create(
         {channel: 'MessagesChannel', channelId: channelId},
         {received:  message => message.action === 'delete' ? dispatch(removeMessage(message)) : dispatch(receiveMessage(message))}
-    );
+        );
 }
 `
 
@@ -43,11 +43,11 @@ The Home component handles subsciptions and a check is made every time the user 
 
 `
 componentDidUpdate(prevProps){
-     if(this.props.match.params.channelId && (prevProps.match.params.channelId !== this.props.match.params.channelId)) {
-         this.props.getMessages(this.props.match.params.channelId);
-          this.props.subscribeToChannelMessages(this.props.channelId);
-     }
-}  
+    if(this.props.match.params.channelId && (prevProps.match.params.channelId !== this.props.match.params.channelId)) {
+    this.props.getMessages(this.props.match.params.channelId);
+    this.props.subscribeToChannelMessages(this.props.channelId);
+    }
+}
 `
 
 
