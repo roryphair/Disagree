@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
             ServerUser.create(user_id: @user.id, server_id: server.id, role: 'peon')
             render :show
         else
-            render json: @user.errors.full_messages, status: 404
+            render json: @user.errors, status: 404
         end
     end
 

@@ -31,7 +31,6 @@ class Home extends React.Component{
     }
 
     componentDidUpdate(prevProps){
-        
         if(this.props.match.params.serverId === '@me'){
             if(!this.props.match.params.channelId ){
                 const users = Object.keys(this.props.user.users_dmed);

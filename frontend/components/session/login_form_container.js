@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {login, resetErrors} from '../../actions/session_actions';
 
 const msp = (state) =>({
-    errors: Object.values(state.errors)
+    errors: state.errors
 })
 const mdp = (dispatch) => ({
     login: (user) => dispatch(login(user)),

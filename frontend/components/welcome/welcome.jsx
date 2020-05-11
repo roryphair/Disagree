@@ -28,6 +28,10 @@ export default (props) => {
                         <img src={window.logo} className='logo-img' alt="logo"/>
                     </div>
                     <div className='right-side' >
+                        <a href="https://angel.co/u/rory-evenson-phair">AngelList</a>
+                        <a href="https://www.linkedin.com/in/rory-evenson-phair-79278630/">LinkedIn</a>
+                        <a href="https://github.com/roryphair/Disagree/">GitHub Repo</a>
+                        <a href="https://roryphair.github.io/">My Site</a>
                     <Link to='/login'> <button className='grey'>Login</button> </Link>
                     </div>
                 </header>

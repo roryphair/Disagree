@@ -27,6 +27,44 @@ class SignupForm extends React.Component{
     }
 
     render(){
+        let emailLabel;
+        let passwordLabel;
+        let usernameLabel;
+        if(this.props.errors['email']){
+            emailLabel = (<>
+            <label htmlFor="" id='email' className='red'>EMAIL  - {this.props.errors['email']} </label>
+            <input type="email" className='session-input red-outline' onChange={this.update('email')} value={this.state.email} id='email'/> 
+            </>
+            )
+        }else{
+           emailLabel = (<> 
+           <label htmlFor="" id='email'>EMAIL</label>
+           <input type="email" className='session-input no-outline' onChange={this.update('email')} value={this.state.email} id='email'/> 
+           </>)
+        }
+        if(this.props.errors['password']){
+            passwordLabel =(<> 
+            <label htmlFor="" id='password' className='red'>PASSWORD - {this.props.errors['password']} </label>
+            <input type="password"  className='session-input red-outline' onChange={this.update('password')} value={this.state.password} id='password'/>
+            </>)
+        }else{
+            passwordLabel =(<> 
+            <label htmlFor="" id='password'>PASSWORD</label>
+            <input type="password" className='session-input no-outline' onChange={this.update('password')} value={this.state.password} id='password'/>
+            </>)
+        }
+        if(this.props.errors['username']){
+
+            usernameLabel = (<>
+            <label htmlFor="" id='username' className='red'>USERNAME - {this.props.errors['username']} </label>
+            <input type="text" className='session-input red-outline' onChange={this.update('username')} value={this.state.username} id='username'/>
+            </>)
+        }else{
+            usernameLabel = (<>
+            <label htmlFor="" id='username'>USERNAME</label>
+            <input type="text" className='session-input no-outline' onChange={this.update('username')} value={this.state.username} id='username'/>
+            </>)
+        }
         return ( 
         <div className='session-background'>
             <img className='session-img' src={window.signinback} alt=""/>
@@ -42,20 +80,9 @@ class SignupForm extends React.Component{
             <form action="" onSubmit={this.handleSubmit}>
                 
                 <h2>Create an account</h2>
-                {this.props.errors.length > 0 ? (
-                <ul className='session-ul'>
-                    {this.props.errors.map((error,idx) =>  <li className='red' key={idx}> {error}</li>)} 
-                </ul>
-             ) : null}
-                <label htmlFor="" id='email'>  EMAIL</label>
-                <input type="email" onChange={this.update('email')} value={this.state.email}  id='email'/>
-                
-                <label htmlFor="" id='username'> USERNAME </label>
-                <input type="text" onChange={this.update('username')} value={this.state.username} id='username'/>
-                
-                    
-                <label htmlFor="" id='password'> PASSWORD  </label>
-                <input type="password" onChange={this.update('password')} value={this.state.password} id='password'/>
+                {emailLabel}
+                {usernameLabel}
+                {passwordLabel}
                 
                 <button className='blue wide'>Continue</button>
             </form>

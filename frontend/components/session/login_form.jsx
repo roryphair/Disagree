@@ -18,7 +18,6 @@ class LoginForm extends React.Component{
         e.preventDefault();
         this.props.login(this.state);
         this.setState({
-            email: "",
             password: ''
         });
 
@@ -29,6 +28,31 @@ class LoginForm extends React.Component{
     }
 
     render(){
+        let emailLabel;
+        let passwordLabel;
+        if(this.props.errors['email']){
+            emailLabel = (<>
+            <label htmlFor="" id='email' className='red'>EMAIL  - {this.props.errors['email']} </label>
+            <input type="email" className='session-input red-outline' onChange={this.update('email')} value={this.state.email} id='email'/> 
+            </>
+            )
+        }else{
+           emailLabel = (<> 
+           <label htmlFor="" id='email'>EMAIL</label>
+           <input type="email" className='session-input no-outline' onChange={this.update('email')} value={this.state.email} id='email'/> 
+           </>)
+        }
+        if(this.props.errors['password']){
+            passwordLabel =(<> 
+            <label htmlFor="" id='password' className='red'>PASSWORD - {this.props.errors['password']} </label>
+            <input type="password"  className='session-input red-outline' onChange={this.update('password')} value={this.state.password} id='password'/>
+            </>)
+        }else{
+            passwordLabel =(<> 
+            <label htmlFor="" id='password'>PASSWORD</label>
+            <input type="password" className='session-input no-outline' onChange={this.update('password')} value={this.state.password} id='password'/>
+            </>)
+        }
         return ( 
             
             <div className='session-background'>
@@ -45,19 +69,11 @@ class LoginForm extends React.Component{
              
             <form action="" onSubmit={this.handleSubmit}>
                 <h2>Welcome back!</h2>
-                {this.props.errors.length > 0 ? (
-                <ul className='session-ul'>
-                    {this.props.errors.map((error,idx) =>  <li className='red' key={idx}> {error}</li>)} 
-                </ul>
-             ) : null}
+               
                 <h3>We're so excited to see you again!</h3>
-                
-                <label htmlFor="" id='email'> EMAIL </label>
-                <input type="email" onChange={this.update('email')} value={this.state.email} id='email'/>
-                    
-                        
-                <label htmlFor="" id='password'> PASSWORD  </label>
-                <input type="password" onChange={this.update('password')} value={this.state.password} id='password'/>
+                {emailLabel}
+       
+                {passwordLabel}  
                 <button className='blue wide'>Login</button>
             </form>
             <div className='session-bottom'><h4>Need an account? <Link to='/signup'>Register</Link></h4> <h4 className={'blue pointer'} onClick={this.props.demoLogin}>Use the Demo Account</h4>  </div>

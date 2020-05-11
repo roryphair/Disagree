@@ -72,6 +72,12 @@ button.red{
 button.red:hover{
     background-color: rgb(44, 0, 0);
 }
+.red{
+    color: red;
+}
+.red-outline{
+    border: 1px red solid;
+}
 
 button.blue{
     color: white;

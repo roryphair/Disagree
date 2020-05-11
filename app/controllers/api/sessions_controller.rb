@@ -2,7 +2,11 @@ class Api::SessionsController < ApplicationController
     def create
         @user = User.find_by_credentials(params[:user][:email], params[:user][:password])
         if @user.nil?
-            render json: [ 'Invalid email or password.'], status: 422 
+            if(User.exists?(email: params[:user][:email]))
+                render json: {password: 'Incorrect Password.'}, status: 422 
+            else
+                render json: {email: 'Email Not Found'}, status: 422
+            end
         else 
             @servers = @user.servers
             login!(@user)

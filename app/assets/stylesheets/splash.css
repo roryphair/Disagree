@@ -55,8 +55,12 @@ img.logo-img{
     margin: 20px 40px;
 }
 .right-side{
+    align-items: center;
     display: flex;
     float:right;
+}
+.right-side > *{
+    padding: 0px 10px;
 }
 img.splash-img{
     position: absolute;
